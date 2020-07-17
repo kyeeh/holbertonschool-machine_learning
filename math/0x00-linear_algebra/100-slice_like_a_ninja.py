@@ -9,4 +9,4 @@ def np_slice(matrix, axes={}):
     Slices a matrix along a specific axes
     Returns the new matrix
     """
-    return matrix
+    return matrix[-3:, -3:]
