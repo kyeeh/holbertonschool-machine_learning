@@ -2,7 +2,6 @@
 """
 Module with function to add two matrices
 """
-#import numpy as np
 
 
 def cat_matrices(mat1, mat2, axis=0):
