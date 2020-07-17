@@ -17,5 +17,5 @@ def add_matrices2D(mat1, mat2):
                 result.append(aux)
             else:
                 return None
-        return result            
+        return result
     return None
