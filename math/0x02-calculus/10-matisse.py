@@ -8,16 +8,14 @@ def poly_derivative(poly):
     """
     Derivative of polynomials
     """
-    drv = [0]
-    if type(poly) == list or len(poly) == 0:
+    if type(poly) == list and len(poly) > 0:
+        drv = []
         if len(poly) > 1:
-            i = 2
-            drv = [poly[1]]
-            for coef in poly[2:]:
-                if isinstance(coef, (int, float)):
-                    drv.append(coef * i)
-                    i += 1
+            for i in range(len(poly)):
+                if isinstance(poly[i], (int, float)):
+                    drv.append(poly[i] * i)
                 else:
                     return None
+            return drv[1:]
         return drv
     return None
