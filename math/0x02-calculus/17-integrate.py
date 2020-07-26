@@ -27,7 +27,7 @@ def poly_integral(poly, C=0):
     The returned list should be as small as possible
 
     """
-    if type(poly) == list and len(poly) > 0:
+    if type(poly) == list and len(poly) > 0 and type(C) == int:
         itg = []
         if len(poly) > 1:
             for i in range(1, len(poly)):
