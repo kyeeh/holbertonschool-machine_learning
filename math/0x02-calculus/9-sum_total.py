@@ -6,7 +6,8 @@ Series
 
 def summation_i_squared(n):
     """
-    Write a function def summation_i_squared(n): that calculates sum_{i=1}^{n} i^2
+    Write a function def summation_i_squared(n):
+        that calculates sum_{i=1}^{n} i^2
     n is the stopping condition
     Return the integer value of the sum
     If n is not a valid number, return None
