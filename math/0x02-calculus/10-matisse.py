@@ -14,7 +14,10 @@ def poly_derivative(poly):
             i = 2
             drv = [poly[1]]
             for coef in poly[2:]:
-                drv.append(coef * i)
-                i += 1
+                if isinstance(coef, (int, float)):
+                    drv.append(coef * i)
+                    i += 1
+                else:
+                    return None
         return drv
     return None
