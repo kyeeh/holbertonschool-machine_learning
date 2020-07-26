@@ -11,11 +11,11 @@ def poly_derivative(poly):
     if type(poly) == list and len(poly) > 0:
         if len(poly) > 1:
             drv = []
-            for i in range(len(poly)):
+            for i in range(1, len(poly)):
                 if isinstance(poly[i], (int, float)):
                     drv.append(poly[i] * i)
                 else:
                     return None
-            return drv[1:]
+            return drv
         return [0]
     return None
