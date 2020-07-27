@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Integral
+Integral of polynomials
 """
 
 
@@ -26,7 +26,7 @@ def poly_integral(poly, C=0):
     The returned list should be as small as possible
 
     """
-    if type(poly) == list and len(poly) > 0 and type(C) == int:
+    if type(poly) == list and len(poly) > 0 and isinstance(C, (int, float)):
         itg = [C]
         if len(poly) > 1:
             for i in range(1, len(poly)):
@@ -36,7 +36,7 @@ def poly_integral(poly, C=0):
                 else:
                     return None
         else:
-            return itg
+            return itg.append(poly[0])
         coef = check_type(poly[len(poly) - 1] / len(poly))
         itg.append(coef)
         return itg
