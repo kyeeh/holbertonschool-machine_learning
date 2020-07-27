@@ -37,7 +37,7 @@ def poly_integral(poly, C=0):
                 else:
                     return None
         else:
-            return [0]
+            return itg
         coef = check_type(poly[len(poly) - 1] / len(poly))
         itg.append(coef)
         return itg
