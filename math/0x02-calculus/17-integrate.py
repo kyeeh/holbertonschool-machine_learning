@@ -36,8 +36,14 @@ def poly_integral(poly, C=0):
                 else:
                     return None
         else:
-            return itg
+            if poly[0] == 0:
+                return itg
+            else:
+                return [C, poly[0]]
         coef = check_type(poly[len(poly) - 1] / len(poly))
         itg.append(coef)
+        for i in range(len(itg)):
+            if (sum(itg[i:]) == 0):
+                return itg[:i]        
         return itg
     return None
