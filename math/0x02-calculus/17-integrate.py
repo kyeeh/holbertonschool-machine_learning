@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from math import trunc
 """
 Integral
 """
@@ -7,7 +6,7 @@ Integral
 
 def check_type(coef):
     if coef.is_integer():
-        return trunc(coef)
+        return int(coef)
     return coef
 
 
