@@ -28,7 +28,7 @@ def poly_integral(poly, C=0):
 
     """
     if type(poly) == list and len(poly) > 0 and type(C) == int:
-        itg = []
+        itg = [0]
         if len(poly) > 1:
             for i in range(1, len(poly)):
                 if isinstance(poly[i], (int, float)):
@@ -36,6 +36,8 @@ def poly_integral(poly, C=0):
                     itg.append(coef)
                 else:
                     return None
+        else:
+            return [0]
         coef = check_type(poly[len(poly) - 1] / len(poly))
         itg.append(coef)
         return itg
