@@ -28,7 +28,7 @@ def poly_integral(poly, C=0):
 
     """
     if type(poly) == list and len(poly) > 0 and type(C) == int:
-        itg = [0]
+        itg = [C]
         if len(poly) > 1:
             for i in range(1, len(poly)):
                 if isinstance(poly[i], (int, float)):
