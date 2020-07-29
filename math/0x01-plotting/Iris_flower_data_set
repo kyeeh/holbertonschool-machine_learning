@@ -1,0 +1,1663 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Iris flower data set - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"7a6b94f2-91d9-47f0-abc4-8fc76b8dfa8f","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Iris_flower_data_set","wgTitle":"Iris flower data set","wgCurRevisionId":962157652,"wgRevisionId":962157652,"wgArticleId":10477224,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 maint: multiple names: authors list","Articles with example Python code","Articles with example R code","Statistical data sets","Datasets in machine learning"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Iris_flower_data_set",
+"wgRelevantArticleId":10477224,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!1},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0,"wgULSPosition":"interlanguage","wgWikibaseItemId":"Q4203254"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.pygments":"ready","skins.vector.styles.legacy":"ready",
+"jquery.tablesorter.styles":"ready","jquery.makeCollapsible.styles":"ready","mediawiki.toc.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","jquery.tablesorter","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.pygments%2CwikimediaBadges%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cjquery.makeCollapsible.styles%7Cjquery.tablesorter.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.36.0-wmf.1"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Iris_dataset_scatterplot.svg/1200px-Iris_dataset_scatterplot.svg.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Iris_flower_data_set&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Iris_flower_data_set&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Iris_flower_data_set"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Iris_flower_data_set rootpage-Iris_flower_data_set skin-vector action-view skin-vector-legacy minerva--history-page-action-enabled">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en"><i>Iris</i> flower data set</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Iris_dataset_scatterplot.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Iris_dataset_scatterplot.svg/220px-Iris_dataset_scatterplot.svg.png" decoding="async" width="220" height="220" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Iris_dataset_scatterplot.svg/330px-Iris_dataset_scatterplot.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/56/Iris_dataset_scatterplot.svg/440px-Iris_dataset_scatterplot.svg.png 2x" data-file-width="749" data-file-height="749" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Iris_dataset_scatterplot.svg" class="internal" title="Enlarge"></a></div><a href="/wiki/Scatterplot" class="mw-redirect" title="Scatterplot">Scatterplot</a> of the data set</div></div></div>
+<p>The <b><i>Iris</i> flower data set</b> or <b>Fisher's <i>Iris</i> data set</b> is a <a href="/wiki/Multivariate_statistics" title="Multivariate statistics">multivariate</a> <a href="/wiki/Data_set" title="Data set">data set</a> introduced by the British <a href="/wiki/Statistician" title="Statistician">statistician</a>, <a href="/wiki/Eugenicist" class="mw-redirect" title="Eugenicist">eugenicist</a>, and <a href="/wiki/Biologist" title="Biologist">biologist</a> <a href="/wiki/Ronald_Fisher" title="Ronald Fisher">Ronald Fisher</a> in his 1936 paper <i>The use of multiple measurements in taxonomic problems</i> as an example of <a href="/wiki/Linear_discriminant_analysis" title="Linear discriminant analysis">linear discriminant analysis</a>.<sup id="cite_ref-fisher36_1-0" class="reference"><a href="#cite_note-fisher36-1">&#91;1&#93;</a></sup> It is sometimes called <b>Anderson's <i>Iris</i> data set</b> because <a href="/wiki/Edgar_Anderson" title="Edgar Anderson">Edgar Anderson</a> collected the data to quantify the <a href="/wiki/Morphology_(biology)" title="Morphology (biology)">morphologic</a> variation of <i><a href="/wiki/Iris_(plant)" title="Iris (plant)">Iris</a></i> flowers of three related species.<sup id="cite_ref-anderson36_2-0" class="reference"><a href="#cite_note-anderson36-2">&#91;2&#93;</a></sup> Two of the three species were collected in the <a href="/wiki/Gasp%C3%A9_Peninsula" title="Gaspé Peninsula">Gaspé Peninsula</a> "all from the same pasture, and picked on the same day and measured at the same time by the same person with the same apparatus".<sup id="cite_ref-anderson35_3-0" class="reference"><a href="#cite_note-anderson35-3">&#91;3&#93;</a></sup> Fisher's paper was published in the journal, the Annals of Eugenics, creating controversy about the continued use of the Iris dataset for teaching statistical techniques today.
+</p><p>The data set consists of 50 samples from each of three species of <i>Iris</i> (<i><a href="/wiki/Iris_setosa" title="Iris setosa">Iris setosa</a></i>, <i><a href="/wiki/Iris_virginica" title="Iris virginica">Iris virginica</a></i> and <i><a href="/wiki/Iris_versicolor" title="Iris versicolor">Iris versicolor</a></i>). Four <a href="/wiki/Features_(pattern_recognition)" class="mw-redirect" title="Features (pattern recognition)">features</a> were measured from each sample: the length and the width of the <a href="/wiki/Sepal" title="Sepal">sepals</a> and <a href="/wiki/Petal" title="Petal">petals</a>, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other. 
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Use_of_the_data_set"><span class="tocnumber">1</span> <span class="toctext">Use of the data set</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Data_set"><span class="tocnumber">2</span> <span class="toctext">Data set</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#The_following_R_(programming_language)_code_illustrates_usage."><span class="tocnumber">2.1</span> <span class="toctext">The following R (programming language) code illustrates usage.</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#The_following_Python_code_illustrates_usage."><span class="tocnumber">2.2</span> <span class="toctext">The following Python code illustrates usage.</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Use_of_the_data_set">Use of the data set</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Iris_flower_data_set&amp;action=edit&amp;section=1" title="Edit section: Use of the data set">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Iris_Flowers_Clustering_kMeans.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/10/Iris_Flowers_Clustering_kMeans.svg/220px-Iris_Flowers_Clustering_kMeans.svg.png" decoding="async" width="220" height="103" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/10/Iris_Flowers_Clustering_kMeans.svg/330px-Iris_Flowers_Clustering_kMeans.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/10/Iris_Flowers_Clustering_kMeans.svg/440px-Iris_Flowers_Clustering_kMeans.svg.png 2x" data-file-width="660" data-file-height="309" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Iris_Flowers_Clustering_kMeans.svg" class="internal" title="Enlarge"></a></div>Unsatisfactory <a href="/wiki/K-means_clustering" title="K-means clustering">k-means clustering</a> (the data cannot be clustered into the known classes) and actual species visualized using <a href="/wiki/Environment_for_DeveLoping_KDD-Applications_Supported_by_Index-Structures" class="mw-redirect" title="Environment for DeveLoping KDD-Applications Supported by Index-Structures">ELKI</a></div></div></div>
+<div class="thumb tleft"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Principal_tree_for_Iris_data_set.png" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Principal_tree_for_Iris_data_set.png/220px-Principal_tree_for_Iris_data_set.png" decoding="async" width="220" height="128" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Principal_tree_for_Iris_data_set.png/330px-Principal_tree_for_Iris_data_set.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Principal_tree_for_Iris_data_set.png/440px-Principal_tree_for_Iris_data_set.png 2x" data-file-width="1240" data-file-height="720" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Principal_tree_for_Iris_data_set.png" class="internal" title="Enlarge"></a></div>An example of the so-called "metro map" for the <i>Iris</i> data set.<sup id="cite_ref-GorbanZinovyev2010_4-0" class="reference"><a href="#cite_note-GorbanZinovyev2010-4">&#91;4&#93;</a></sup> Only a small fraction of <i>Iris-virginica</i> is mixed with <i>Iris-versicolor</i>. All other samples of the different <i>Iris</i> species belong to the different nodes.</div></div></div>
+<p>Based on Fisher's linear discriminant model, this data set became a typical test case for many <a href="/wiki/Statistical_classification" title="Statistical classification">statistical classification</a> techniques in <a href="/wiki/Machine_learning" title="Machine learning">machine learning</a> such as <a href="/wiki/Support_vector_machines" class="mw-redirect" title="Support vector machines">support vector machines</a>.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup>
+</p><p>The use of this data set in <a href="/wiki/Cluster_analysis" title="Cluster analysis">cluster analysis</a> however is not common, since the data set only contains two clusters with rather obvious separation. One of the clusters contains <i>Iris setosa</i>, while the other cluster contains both <i>Iris virginica</i> and <i>Iris versicolor</i> and is not separable without the species information Fisher used. This makes the data set a good example to explain the difference between supervised and unsupervised techniques in <a href="/wiki/Data_mining" title="Data mining">data mining</a>: Fisher's linear discriminant model can only be obtained when the object species are known: class labels and clusters are not necessarily the same.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p><p>Nevertheless, all three species of <i>Iris</i> are separable in the projection on the nonlinear and branching principal component.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup> The data set is approximated by the closest tree with some penalty for the excessive number of nodes, bending and stretching. Then the so-called "metro map" is constructed.<sup id="cite_ref-GorbanZinovyev2010_4-1" class="reference"><a href="#cite_note-GorbanZinovyev2010-4">&#91;4&#93;</a></sup> The data points are projected into the closest node. For each node the <a href="/wiki/Pie_chart" title="Pie chart">pie diagram</a> of the projected points is prepared. The area of the pie is proportional to the number of the projected points. It is clear from the diagram (left) that the absolute majority of the samples of the different <i>Iris</i> species belong to the different nodes. Only a small fraction of <i>Iris-virginica</i> is mixed with <i>Iris-versicolor</i> (the mixed blue-green nodes in the diagram). Therefore, the three species of Iris (<i>Iris setosa</i>, <i>Iris virginica</i> and <i>Iris versicolor</i>) are separable by the unsupervising procedures of nonlinear <a href="/wiki/Principal_component_analysis" title="Principal component analysis">principal component analysis</a>. To discriminate them, it is sufficient just to select the corresponding nodes on the principal tree.
+</p>
+<h2><span class="mw-headline" id="Data_set">Data set</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Iris_flower_data_set&amp;action=edit&amp;section=2" title="Edit section: Data set">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Kosaciec_szczecinkowaty_Iris_setosa.jpg/220px-Kosaciec_szczecinkowaty_Iris_setosa.jpg" decoding="async" width="220" height="293" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Kosaciec_szczecinkowaty_Iris_setosa.jpg/330px-Kosaciec_szczecinkowaty_Iris_setosa.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/56/Kosaciec_szczecinkowaty_Iris_setosa.jpg/440px-Kosaciec_szczecinkowaty_Iris_setosa.jpg 2x" data-file-width="960" data-file-height="1280" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg" class="internal" title="Enlarge"></a></div><i><a href="/wiki/Iris_setosa" title="Iris setosa">Iris setosa</a></i></div></div></div><p>The dataset contains a set of 150 records under five attributes -  sepal length, sepal width, petal length, petal width and species.</p><div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Iris_versicolor_3.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Iris_versicolor_3.jpg/220px-Iris_versicolor_3.jpg" decoding="async" width="220" height="165" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Iris_versicolor_3.jpg/330px-Iris_versicolor_3.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/41/Iris_versicolor_3.jpg/440px-Iris_versicolor_3.jpg 2x" data-file-width="1984" data-file-height="1488" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Iris_versicolor_3.jpg" class="internal" title="Enlarge"></a></div><i><a href="/wiki/Iris_versicolor" title="Iris versicolor">Iris versicolor</a></i></div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Iris_virginica.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Iris_virginica.jpg/220px-Iris_virginica.jpg" decoding="async" width="220" height="179" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Iris_virginica.jpg/330px-Iris_virginica.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Iris_virginica.jpg/440px-Iris_virginica.jpg 2x" data-file-width="2395" data-file-height="1950" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Iris_virginica.jpg" class="internal" title="Enlarge"></a></div><i><a href="/wiki/Iris_virginica" title="Iris virginica">Iris virginica</a></i></div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="/wiki/File:Spectramap_Biplot_Iris_Flower_Data_Set_FULL.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/22/Spectramap_Biplot_Iris_Flower_Data_Set_FULL.jpg/220px-Spectramap_Biplot_Iris_Flower_Data_Set_FULL.jpg" decoding="async" width="220" height="141" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/22/Spectramap_Biplot_Iris_Flower_Data_Set_FULL.jpg/330px-Spectramap_Biplot_Iris_Flower_Data_Set_FULL.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/22/Spectramap_Biplot_Iris_Flower_Data_Set_FULL.jpg/440px-Spectramap_Biplot_Iris_Flower_Data_Set_FULL.jpg 2x" data-file-width="1064" data-file-height="680" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Spectramap_Biplot_Iris_Flower_Data_Set_FULL.jpg" class="internal" title="Enlarge"></a></div>Spectramap biplot of Fisher's iris data set</div></div></div>
+<table class="wikitable sortable mw-collapsible mw-collapsed">
+<caption>Fisher's <i>Iris</i> Data
+</caption>
+<tbody><tr>
+<th>Dataset Order</th>
+<th>Sepal length</th>
+<th>Sepal width</th>
+<th>Petal length</th>
+<th>Petal width</th>
+<th>Species
+</th></tr>
+<tr>
+<td>1</td>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>2</td>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>3</td>
+<td>4.7</td>
+<td>3.2</td>
+<td>1.3</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>4</td>
+<td>4.6</td>
+<td>3.1</td>
+<td>1.5</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>5</td>
+<td>5.0</td>
+<td>3.6</td>
+<td>1.4</td>
+<td>0.3</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>6</td>
+<td>5.4</td>
+<td>3.9</td>
+<td>1.7</td>
+<td>0.4</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>7</td>
+<td>4.6</td>
+<td>3.4</td>
+<td>1.4</td>
+<td>0.3</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>8</td>
+<td>5.0</td>
+<td>3.4</td>
+<td>1.5</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>9</td>
+<td>4.4</td>
+<td>2.9</td>
+<td>1.4</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>10</td>
+<td>4.9</td>
+<td>3.1</td>
+<td>1.5</td>
+<td>0.1</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>11</td>
+<td>5.4</td>
+<td>3.7</td>
+<td>1.5</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>12</td>
+<td>4.8</td>
+<td>3.4</td>
+<td>1.6</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>13</td>
+<td>4.8</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.1</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>14</td>
+<td>4.3</td>
+<td>3.0</td>
+<td>1.1</td>
+<td>0.1</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>15</td>
+<td>5.8</td>
+<td>4.0</td>
+<td>1.2</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>16</td>
+<td>5.7</td>
+<td>4.4</td>
+<td>1.5</td>
+<td>0.4</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>17</td>
+<td>5.4</td>
+<td>3.9</td>
+<td>1.3</td>
+<td>0.4</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>18</td>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.3</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>19</td>
+<td>5.7</td>
+<td>3.8</td>
+<td>1.7</td>
+<td>0.3</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>20</td>
+<td>5.1</td>
+<td>3.8</td>
+<td>1.5</td>
+<td>0.3</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>21</td>
+<td>5.4</td>
+<td>3.4</td>
+<td>1.7</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>22</td>
+<td>5.1</td>
+<td>3.7</td>
+<td>1.5</td>
+<td>0.4</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>23</td>
+<td>4.6</td>
+<td>3.6</td>
+<td>1.0</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>24</td>
+<td>5.1</td>
+<td>3.3</td>
+<td>1.7</td>
+<td>0.5</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>25</td>
+<td>4.8</td>
+<td>3.4</td>
+<td>1.9</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>26</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>1.6</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>27</td>
+<td>5.0</td>
+<td>3.4</td>
+<td>1.6</td>
+<td>0.4</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>28</td>
+<td>5.2</td>
+<td>3.5</td>
+<td>1.5</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>29</td>
+<td>5.2</td>
+<td>3.4</td>
+<td>1.4</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>30</td>
+<td>4.7</td>
+<td>3.2</td>
+<td>1.6</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>31</td>
+<td>4.8</td>
+<td>3.1</td>
+<td>1.6</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>32</td>
+<td>5.4</td>
+<td>3.4</td>
+<td>1.5</td>
+<td>0.4</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>33</td>
+<td>5.2</td>
+<td>4.1</td>
+<td>1.5</td>
+<td>0.1</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>34</td>
+<td>5.5</td>
+<td>4.2</td>
+<td>1.4</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>35</td>
+<td>4.9</td>
+<td>3.1</td>
+<td>1.5</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>36</td>
+<td>5.0</td>
+<td>3.2</td>
+<td>1.2</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>37</td>
+<td>5.5</td>
+<td>3.5</td>
+<td>1.3</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>38</td>
+<td>4.9</td>
+<td>3.6</td>
+<td>1.4</td>
+<td>0.1</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>39</td>
+<td>4.4</td>
+<td>3.0</td>
+<td>1.3</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>40</td>
+<td>5.1</td>
+<td>3.4</td>
+<td>1.5</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>41</td>
+<td>5.0</td>
+<td>3.5</td>
+<td>1.3</td>
+<td>0.3</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>42</td>
+<td>4.5</td>
+<td>2.3</td>
+<td>1.3</td>
+<td>0.3</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>43</td>
+<td>4.4</td>
+<td>3.2</td>
+<td>1.3</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>44</td>
+<td>5.0</td>
+<td>3.5</td>
+<td>1.6</td>
+<td>0.6</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>45</td>
+<td>5.1</td>
+<td>3.8</td>
+<td>1.9</td>
+<td>0.4</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>46</td>
+<td>4.8</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.3</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>47</td>
+<td>5.1</td>
+<td>3.8</td>
+<td>1.6</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>48</td>
+<td>4.6</td>
+<td>3.2</td>
+<td>1.4</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>49</td>
+<td>5.3</td>
+<td>3.7</td>
+<td>1.5</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>50</td>
+<td>5.0</td>
+<td>3.3</td>
+<td>1.4</td>
+<td>0.2</td>
+<td><i>I.&#160;setosa</i>
+</td></tr>
+<tr>
+<td>51</td>
+<td>7.0</td>
+<td>3.2</td>
+<td>4.7</td>
+<td>1.4</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>52</td>
+<td>6.4</td>
+<td>3.2</td>
+<td>4.5</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>53</td>
+<td>6.9</td>
+<td>3.1</td>
+<td>4.9</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>54</td>
+<td>5.5</td>
+<td>2.3</td>
+<td>4.0</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>55</td>
+<td>6.5</td>
+<td>2.8</td>
+<td>4.6</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>56</td>
+<td>5.7</td>
+<td>2.8</td>
+<td>4.5</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>57</td>
+<td>6.3</td>
+<td>3.3</td>
+<td>4.7</td>
+<td>1.6</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>58</td>
+<td>4.9</td>
+<td>2.4</td>
+<td>3.3</td>
+<td>1.0</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>59</td>
+<td>6.6</td>
+<td>2.9</td>
+<td>4.6</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>60</td>
+<td>5.2</td>
+<td>2.7</td>
+<td>3.9</td>
+<td>1.4</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>61</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>3.5</td>
+<td>1.0</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>62</td>
+<td>5.9</td>
+<td>3.0</td>
+<td>4.2</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>63</td>
+<td>6.0</td>
+<td>2.2</td>
+<td>4.0</td>
+<td>1.0</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>64</td>
+<td>6.1</td>
+<td>2.9</td>
+<td>4.7</td>
+<td>1.4</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>65</td>
+<td>5.6</td>
+<td>2.9</td>
+<td>3.6</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>66</td>
+<td>6.7</td>
+<td>3.1</td>
+<td>4.4</td>
+<td>1.4</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>67</td>
+<td>5.6</td>
+<td>3.0</td>
+<td>4.5</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>68</td>
+<td>5.8</td>
+<td>2.7</td>
+<td>4.1</td>
+<td>1.0</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>69</td>
+<td>6.2</td>
+<td>2.2</td>
+<td>4.5</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>70</td>
+<td>5.6</td>
+<td>2.5</td>
+<td>3.9</td>
+<td>1.1</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>71</td>
+<td>5.9</td>
+<td>3.2</td>
+<td>4.8</td>
+<td>1.8</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>72</td>
+<td>6.1</td>
+<td>2.8</td>
+<td>4.0</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>73</td>
+<td>6.3</td>
+<td>2.5</td>
+<td>4.9</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>74</td>
+<td>6.1</td>
+<td>2.8</td>
+<td>4.7</td>
+<td>1.2</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>75</td>
+<td>6.4</td>
+<td>2.9</td>
+<td>4.3</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>76</td>
+<td>6.6</td>
+<td>3.0</td>
+<td>4.4</td>
+<td>1.4</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>77</td>
+<td>6.8</td>
+<td>2.8</td>
+<td>4.8</td>
+<td>1.4</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>78</td>
+<td>6.7</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>1.7</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>79</td>
+<td>6.0</td>
+<td>2.9</td>
+<td>4.5</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>80</td>
+<td>5.7</td>
+<td>2.6</td>
+<td>3.5</td>
+<td>1.0</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>81</td>
+<td>5.5</td>
+<td>2.4</td>
+<td>3.8</td>
+<td>1.1</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>82</td>
+<td>5.5</td>
+<td>2.4</td>
+<td>3.7</td>
+<td>1.0</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>83</td>
+<td>5.8</td>
+<td>2.7</td>
+<td>3.9</td>
+<td>1.2</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>84</td>
+<td>6.0</td>
+<td>2.7</td>
+<td>5.1</td>
+<td>1.6</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>85</td>
+<td>5.4</td>
+<td>3.0</td>
+<td>4.5</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>86</td>
+<td>6.0</td>
+<td>3.4</td>
+<td>4.5</td>
+<td>1.6</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>87</td>
+<td>6.7</td>
+<td>3.1</td>
+<td>4.7</td>
+<td>1.5</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>88</td>
+<td>6.3</td>
+<td>2.3</td>
+<td>4.4</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>89</td>
+<td>5.6</td>
+<td>3.0</td>
+<td>4.1</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>90</td>
+<td>5.5</td>
+<td>2.5</td>
+<td>4.0</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>91</td>
+<td>5.5</td>
+<td>2.6</td>
+<td>4.4</td>
+<td>1.2</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>92</td>
+<td>6.1</td>
+<td>3.0</td>
+<td>4.6</td>
+<td>1.4</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>93</td>
+<td>5.8</td>
+<td>2.6</td>
+<td>4.0</td>
+<td>1.2</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>94</td>
+<td>5.0</td>
+<td>2.3</td>
+<td>3.3</td>
+<td>1.0</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>95</td>
+<td>5.6</td>
+<td>2.7</td>
+<td>4.2</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>96</td>
+<td>5.7</td>
+<td>3.0</td>
+<td>4.2</td>
+<td>1.2</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>97</td>
+<td>5.7</td>
+<td>2.9</td>
+<td>4.2</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>98</td>
+<td>6.2</td>
+<td>2.9</td>
+<td>4.3</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>99</td>
+<td>5.1</td>
+<td>2.5</td>
+<td>3.0</td>
+<td>1.1</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>100</td>
+<td>5.7</td>
+<td>2.8</td>
+<td>4.1</td>
+<td>1.3</td>
+<td><i>I.&#160;versicolor</i>
+</td></tr>
+<tr>
+<td>101</td>
+<td>6.3</td>
+<td>3.3</td>
+<td>6.0</td>
+<td>2.5</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>102</td>
+<td>5.8</td>
+<td>2.7</td>
+<td>5.1</td>
+<td>1.9</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>103</td>
+<td>7.1</td>
+<td>3.0</td>
+<td>5.9</td>
+<td>2.1</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>104</td>
+<td>6.3</td>
+<td>2.9</td>
+<td>5.6</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>105</td>
+<td>6.5</td>
+<td>3.0</td>
+<td>5.8</td>
+<td>2.2</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>106</td>
+<td>7.6</td>
+<td>3.0</td>
+<td>6.6</td>
+<td>2.1</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>107</td>
+<td>4.9</td>
+<td>2.5</td>
+<td>4.5</td>
+<td>1.7</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>108</td>
+<td>7.3</td>
+<td>2.9</td>
+<td>6.3</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>109</td>
+<td>6.7</td>
+<td>2.5</td>
+<td>5.8</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>110</td>
+<td>7.2</td>
+<td>3.6</td>
+<td>6.1</td>
+<td>2.5</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>111</td>
+<td>6.5</td>
+<td>3.2</td>
+<td>5.1</td>
+<td>2.0</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>112</td>
+<td>6.4</td>
+<td>2.7</td>
+<td>5.3</td>
+<td>1.9</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>113</td>
+<td>6.8</td>
+<td>3.0</td>
+<td>5.5</td>
+<td>2.1</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>114</td>
+<td>5.7</td>
+<td>2.5</td>
+<td>5.0</td>
+<td>2.0</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>115</td>
+<td>5.8</td>
+<td>2.8</td>
+<td>5.1</td>
+<td>2.4</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>116</td>
+<td>6.4</td>
+<td>3.2</td>
+<td>5.3</td>
+<td>2.3</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>117</td>
+<td>6.5</td>
+<td>3.0</td>
+<td>5.5</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>118</td>
+<td>7.7</td>
+<td>3.8</td>
+<td>6.7</td>
+<td>2.2</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>119</td>
+<td>7.7</td>
+<td>2.6</td>
+<td>6.9</td>
+<td>2.3</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>120</td>
+<td>6.0</td>
+<td>2.2</td>
+<td>5.0</td>
+<td>1.5</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>121</td>
+<td>6.9</td>
+<td>3.2</td>
+<td>5.7</td>
+<td>2.3</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>122</td>
+<td>5.6</td>
+<td>2.8</td>
+<td>4.9</td>
+<td>2.0</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>123</td>
+<td>7.7</td>
+<td>2.8</td>
+<td>6.7</td>
+<td>2.0</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>124</td>
+<td>6.3</td>
+<td>2.7</td>
+<td>4.9</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>125</td>
+<td>6.7</td>
+<td>3.3</td>
+<td>5.7</td>
+<td>2.1</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>126</td>
+<td>7.2</td>
+<td>3.2</td>
+<td>6.0</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>127</td>
+<td>6.2</td>
+<td>2.8</td>
+<td>4.8</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>128</td>
+<td>6.1</td>
+<td>3.0</td>
+<td>4.9</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>129</td>
+<td>6.4</td>
+<td>2.8</td>
+<td>5.6</td>
+<td>2.1</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>130</td>
+<td>7.2</td>
+<td>3.0</td>
+<td>5.8</td>
+<td>1.6</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>131</td>
+<td>7.4</td>
+<td>2.8</td>
+<td>6.1</td>
+<td>1.9</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>132</td>
+<td>7.9</td>
+<td>3.8</td>
+<td>6.4</td>
+<td>2.0</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>133</td>
+<td>6.4</td>
+<td>2.8</td>
+<td>5.6</td>
+<td>2.2</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>134</td>
+<td>6.3</td>
+<td>2.8</td>
+<td>5.1</td>
+<td>1.5</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>135</td>
+<td>6.1</td>
+<td>2.6</td>
+<td>5.6</td>
+<td>1.4</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>136</td>
+<td>7.7</td>
+<td>3.0</td>
+<td>6.1</td>
+<td>2.3</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>137</td>
+<td>6.3</td>
+<td>3.4</td>
+<td>5.6</td>
+<td>2.4</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>138</td>
+<td>6.4</td>
+<td>3.1</td>
+<td>5.5</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>139</td>
+<td>6.0</td>
+<td>3.0</td>
+<td>4.8</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>140</td>
+<td>6.9</td>
+<td>3.1</td>
+<td>5.4</td>
+<td>2.1</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>141</td>
+<td>6.7</td>
+<td>3.1</td>
+<td>5.6</td>
+<td>2.4</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>142</td>
+<td>6.9</td>
+<td>3.1</td>
+<td>5.1</td>
+<td>2.3</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>143</td>
+<td>5.8</td>
+<td>2.7</td>
+<td>5.1</td>
+<td>1.9</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>144</td>
+<td>6.8</td>
+<td>3.2</td>
+<td>5.9</td>
+<td>2.3</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>145</td>
+<td>6.7</td>
+<td>3.3</td>
+<td>5.7</td>
+<td>2.5</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>146</td>
+<td>6.7</td>
+<td>3.0</td>
+<td>5.2</td>
+<td>2.3</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>147</td>
+<td>6.3</td>
+<td>2.5</td>
+<td>5.0</td>
+<td>1.9</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>148</td>
+<td>6.5</td>
+<td>3.0</td>
+<td>5.2</td>
+<td>2.0</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>149</td>
+<td>6.2</td>
+<td>3.4</td>
+<td>5.4</td>
+<td>2.3</td>
+<td><i>I.&#160;virginica</i>
+</td></tr>
+<tr>
+<td>150</td>
+<td>5.9</td>
+<td>3.0</td>
+<td>5.1</td>
+<td>1.8</td>
+<td><i>I.&#160;virginica</i>
+</td></tr></tbody></table>
+<p>The iris data set is widely used as a beginner's dataset for machine learning purposes. The dataset is included in <a href="/wiki/R" title="R">R (programming language)</a> <i>base</i> and Python in the machine learning package <a href="/wiki/Scikit-learn" title="Scikit-learn">Scikit-learn</a>, so that users can access it without having to find a source for it.
+</p>
+<h3><span id="The_following_R_.28programming_language.29_code_illustrates_usage."></span><span class="mw-headline" id="The_following_R_(programming_language)_code_illustrates_usage.">The following <a href="/wiki/R" title="R">R (programming language)</a> code illustrates usage.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Iris_flower_data_set&amp;action=edit&amp;section=3" title="Edit section: The following R (programming language) code illustrates usage.">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="mw-highlight mw-highlight-lang-r mw-content-ltr" dir="ltr"><pre><span></span><span class="n">iris</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+<span class="c1"># &quot;data.frame&quot;</span>
+
+<span class="n">iris3</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">iris3</span><span class="p">)</span>
+<span class="c1">#&quot;array&quot;</span>
+</pre></div>
+<h3><span class="mw-headline" id="The_following_Python_code_illustrates_usage.">The following <a href="/wiki/Python_(programming_language)" title="Python (programming language)">Python</a> code illustrates usage.</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Iris_flower_data_set&amp;action=edit&amp;section=4" title="Edit section: The following Python code illustrates usage.">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">iris</span>
+</pre></div>
+<p>This code gives:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span><span class="mf">5.1</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">4.9</span><span class="p">,</span> <span class="mf">3.</span> <span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">4.6</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
+</pre></div>
+<p>Several versions of the dataset have been published.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Iris_flower_data_set&amp;action=edit&amp;section=5" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Data_set#Classic_data_sets" title="Data set">Classic data sets</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Iris_flower_data_set&amp;action=edit&amp;section=6" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-fisher36-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-fisher36_1-0">^</a></b></span> <span class="reference-text"><cite id="CITEREFR._A._Fisher1936" class="citation journal cs1">R. A. Fisher (1936). "The use of multiple measurements in taxonomic problems". <i><a href="/wiki/Annals_of_Eugenics" class="mw-redirect" title="Annals of Eugenics">Annals of Eugenics</a></i>. <b>7</b> (2): 179–188. <a href="/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1111%2Fj.1469-1809.1936.tb02137.x">10.1111/j.1469-1809.1936.tb02137.x</a>. <a href="/wiki/Hdl_(identifier)" class="mw-redirect" title="Hdl (identifier)">hdl</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="//hdl.handle.net/2440%2F15227">2440/15227</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Annals+of+Eugenics&amp;rft.atitle=The+use+of+multiple+measurements+in+taxonomic+problems&amp;rft.volume=7&amp;rft.issue=2&amp;rft.pages=179-188&amp;rft.date=1936&amp;rft_id=info%3Ahdl%2F2440%2F15227&amp;rft_id=info%3Adoi%2F10.1111%2Fj.1469-1809.1936.tb02137.x&amp;rft.au=R.+A.+Fisher&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AIris+flower+data+set" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r951705291">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background-image:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png");background-image:linear-gradient(transparent,transparent),url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg");background-repeat:no-repeat;background-size:9px;background-position:right .1em center}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background-image:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png");background-image:linear-gradient(transparent,transparent),url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg");background-repeat:no-repeat;background-size:9px;background-position:right .1em center}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background-image:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png");background-image:linear-gradient(transparent,transparent),url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg");background-repeat:no-repeat;background-size:9px;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background-image:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png");background-image:linear-gradient(transparent,transparent),url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg");background-repeat:no-repeat;background-size:12px;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style></span>
+</li>
+<li id="cite_note-anderson36-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-anderson36_2-0">^</a></b></span> <span class="reference-text"><cite id="CITEREFEdgar_Anderson1936" class="citation journal cs1">Edgar Anderson (1936). <a rel="nofollow" class="external text" href="http://biostor.org/reference/11559">"The species problem in <i>Iris</i>"</a>. <i><a href="/wiki/Annals_of_the_Missouri_Botanical_Garden" title="Annals of the Missouri Botanical Garden">Annals of the Missouri Botanical Garden</a></i>. <b>23</b> (3): 457–509. <a href="/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.2307%2F2394164">10.2307/2394164</a>. <a href="/wiki/JSTOR_(identifier)" class="mw-redirect" title="JSTOR (identifier)">JSTOR</a>&#160;<a rel="nofollow" class="external text" href="//www.jstor.org/stable/2394164">2394164</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Annals+of+the+Missouri+Botanical+Garden&amp;rft.atitle=The+species+problem+in+Iris&amp;rft.volume=23&amp;rft.issue=3&amp;rft.pages=457-509&amp;rft.date=1936&amp;rft_id=info%3Adoi%2F10.2307%2F2394164&amp;rft_id=%2F%2Fwww.jstor.org%2Fstable%2F2394164&amp;rft.au=Edgar+Anderson&amp;rft_id=http%3A%2F%2Fbiostor.org%2Freference%2F11559&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AIris+flower+data+set" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r951705291"/></span>
+</li>
+<li id="cite_note-anderson35-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-anderson35_3-0">^</a></b></span> <span class="reference-text"><cite id="CITEREFEdgar_Anderson1935" class="citation journal cs1">Edgar Anderson (1935). "The irises of the Gaspé Peninsula". <i>Bulletin of the American Iris Society</i>. <b>59</b>: 2–5.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Bulletin+of+the+American+Iris+Society&amp;rft.atitle=The+irises+of+the+Gasp%C3%A9+Peninsula&amp;rft.volume=59&amp;rft.pages=2-5&amp;rft.date=1935&amp;rft.au=Edgar+Anderson&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AIris+flower+data+set" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r951705291"/></span>
+</li>
+<li id="cite_note-GorbanZinovyev2010-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-GorbanZinovyev2010_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-GorbanZinovyev2010_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><a href="/wiki/Alexander_Nikolaevich_Gorban" class="mw-redirect" title="Alexander Nikolaevich Gorban">A. N. Gorban</a>, A. Zinovyev. <a rel="nofollow" class="external text" href="https://arxiv.org/abs/1001.1122">Principal manifolds and graphs in practice: from molecular biology to dynamical systems</a>, International Journal of Neural Systems, Vol. 20, No. 3 (2010) 219–232.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://archive.ics.uci.edu/ml/datasets/iris">"UCI Machine Learning Repository: Iris Data Set"</a>. <i>archive.ics.uci.edu</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2017-12-01</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=archive.ics.uci.edu&amp;rft.atitle=UCI+Machine+Learning+Repository%3A+Iris+Data+Set&amp;rft_id=https%3A%2F%2Farchive.ics.uci.edu%2Fml%2Fdatasets%2Firis&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AIris+flower+data+set" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r951705291"/></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><cite id="CITEREFInes_Färber,_Stephan_Günnemann,_Hans-Peter_Kriegel,_Peer_Kröger,_Emmanuel_Müller,_Erich_Schubert,_Thomas_Seidl,_Arthur_Zimek2010" class="citation conference cs1">Ines Färber, Stephan Günnemann, <a href="/wiki/Hans-Peter_Kriegel" title="Hans-Peter Kriegel">Hans-Peter Kriegel</a>, Peer Kröger, Emmanuel Müller, Erich Schubert, Thomas Seidl, Arthur Zimek (2010). <a rel="nofollow" class="external text" href="http://eecs.oregonstate.edu/research/multiclust/Evaluation-4.pdf">"On Using Class-Labels in Evaluation of Clusterings"</a> <span class="cs1-format">(PDF)</span>.  In Xiaoli Z. Fern; Ian Davidson; Jennifer Dy (eds.). <i>MultiClust: Discovering, Summarizing, and Using Multiple Clusterings</i>. <a href="/wiki/Association_for_Computing_Machinery" title="Association for Computing Machinery">ACM</a> <a href="/wiki/SIGKDD" class="mw-redirect" title="SIGKDD">SIGKDD</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=On+Using+Class-Labels+in+Evaluation+of+Clusterings&amp;rft.btitle=MultiClust%3A+Discovering%2C+Summarizing%2C+and+Using+Multiple+Clusterings&amp;rft.pub=ACM+SIGKDD&amp;rft.date=2010&amp;rft.au=Ines+F%C3%A4rber%2C+Stephan+G%C3%BCnnemann%2C+Hans-Peter+Kriegel%2C+Peer+Kr%C3%B6ger%2C+Emmanuel+M%C3%BCller%2C+Erich+Schubert%2C+Thomas+Seidl%2C+Arthur+Zimek&amp;rft_id=http%3A%2F%2Feecs.oregonstate.edu%2Fresearch%2Fmulticlust%2FEvaluation-4.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AIris+flower+data+set" class="Z3988"></span><span class="cs1-maint citation-comment">CS1 maint: multiple names: authors list (<a href="/wiki/Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">link</a>)</span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r951705291"/></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text">A.N. Gorban, N.R. Sumner, and A.Y. Zinovyev, <a rel="nofollow" class="external text" href="https://arxiv.org/abs/cs/0603090">Topological grammars for data approximation</a>, Applied Mathematics Letters Volume 20, Issue 4  (2007),  382-386.</span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><cite id="CITEREFBezdek,_J.C._and_Keller,_J.M._and_Krishnapuram,_R._and_Kuncheva,_L.I._and_Pal,_N.R.1999" class="citation journal cs1">Bezdek, J.C. and Keller, J.M. and Krishnapuram, R. and Kuncheva, L.I. and Pal, N.R. (1999). "Will the real iris data please stand up?". <i>IEEE Transactions on Fuzzy Systems</i>. <b>7</b> (3): 368–369. <a href="/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2F91.771092">10.1109/91.771092</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Fuzzy+Systems&amp;rft.atitle=Will+the+real+iris+data+please+stand+up%3F&amp;rft.volume=7&amp;rft.issue=3&amp;rft.pages=368-369&amp;rft.date=1999&amp;rft_id=info%3Adoi%2F10.1109%2F91.771092&amp;rft.au=Bezdek%2C+J.C.+and+Keller%2C+J.M.+and+Krishnapuram%2C+R.+and+Kuncheva%2C+L.I.+and+Pal%2C+N.R.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AIris+flower+data+set" class="Z3988"></span><span class="cs1-maint citation-comment">CS1 maint: multiple names: authors list (<a href="/wiki/Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">link</a>)</span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r951705291"/></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Iris_flower_data_set&amp;action=edit&amp;section=7" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://archive.ics.uci.edu/ml/datasets/Iris">"Fisher's Iris Data"</a>. <i>(Contains two errors which are documented)</i>. UCI Machine Learning Repository: Iris Data Set.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=%28Contains+two+errors+which+are+documented%29&amp;rft.atitle=Fisher%27s+Iris+Data&amp;rft_id=http%3A%2F%2Farchive.ics.uci.edu%2Fml%2Fdatasets%2FIris&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AIris+flower+data+set" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r951705291"/></li></ul>
+<div role="navigation" class="navbox" aria-labelledby="Iris" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2" style="background-color:#aba4ee"><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="/wiki/Template:Iris" title="Template:Iris"><abbr title="View this template" style=";background-color:#aba4ee;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none; padding:0;">v</abbr></a></li><li class="nv-talk"><a href="/wiki/Template_talk:Iris" title="Template talk:Iris"><abbr title="Discuss this template" style=";background-color:#aba4ee;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none; padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Iris&amp;action=edit"><abbr title="Edit this template" style=";background-color:#aba4ee;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none; padding:0;">e</abbr></a></li></ul></div><div id="Iris" style="font-size:114%;margin:0 4em"><a href="/wiki/Iris_(plant)" title="Iris (plant)">Iris</a></div></th></tr><tr><td class="navbox-abovebelow" colspan="2"><div id="List_of_Iris_species"><a href="/wiki/List_of_Iris_species" title="List of Iris species">List of <i>Iris</i> species</a></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background-color:#d8ebdf">Iris subgenera</th><td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><i><a href="/wiki/Iris_subg._Iris" title="Iris subg. Iris">Iris</a></i></li>
+<li><i><a href="/wiki/Iris_subg._Limniris" title="Iris subg. Limniris">Limniris</a></i></li>
+<li><i><a href="/wiki/Iris_subg._Xiphium" title="Iris subg. Xiphium">Xiphium</a></i></li>
+<li><i><a href="/wiki/Iris_subg._Nepalensis" title="Iris subg. Nepalensis">Nepalensis</a></i></li>
+<li><i><a href="/wiki/Iris_subg._Scorpiris" title="Iris subg. Scorpiris">Scorpiris</a></i></li>
+<li><i><a href="/wiki/Iris_subg._Hermodactyloides" title="Iris subg. Hermodactyloides">Hermodactyloides</a></i></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background-color:#d8ebdf">Common names</th><td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Iris_confusa" title="Iris confusa">Bamboo iris</a></li>
+<li><a href="/wiki/Iris_sanguinea" title="Iris sanguinea">Blood iris</a></li>
+<li><a href="/wiki/Iris_versicolor" title="Iris versicolor">Blue flag</a></li>
+<li><a href="/wiki/Iris_ser._Chinenses" title="Iris ser. Chinenses">Chinenses irises</a></li>
+<li><a href="/wiki/Iris_cristata" title="Iris cristata">Crested iris</a></li>
+<li><a href="/wiki/Iris_%C3%97_hollandica" title="Iris × hollandica">Dutch iris</a></li>
+<li><a href="/wiki/Iris_lacustris" title="Iris lacustris">Dwarf Lake iris</a></li>
+<li><a href="/wiki/Iris_latifolia" title="Iris latifolia">English iris</a></li>
+<li><a href="/wiki/Iris_germanica" class="mw-redirect" title="Iris germanica">German iris</a></li>
+<li><a href="/wiki/Iris_variegata" title="Iris variegata">Hungarian iris</a></li>
+<li><a href="/wiki/Japanese_iris" title="Japanese iris">Japanese iris</a></li>
+<li><a href="/wiki/Iris_subg._Scorpiris" title="Iris subg. Scorpiris">Junos</a></li>
+<li><a href="/wiki/Louisiana_iris" title="Louisiana iris">Louisiana iris</a></li>
+<li><a href="/wiki/Iris_ser._Californicae" title="Iris ser. Californicae">Pacific Coast irises</a></li>
+<li><a href="/wiki/Iris_ser._Longipetalae" title="Iris ser. Longipetalae">Rocky Mountain irises</a></li>
+<li><a href="/wiki/Iris_ruthenica" title="Iris ruthenica">Russian iris</a></li>
+<li><a href="/wiki/Iris_ser._Sibiricae" title="Iris ser. Sibiricae">Siberian irises</a></li>
+<li><a href="/wiki/Iris_prismatica" title="Iris prismatica">Slender blue flag</a></li>
+<li><a href="/wiki/Iris_xiphium" title="Iris xiphium">Spanish iris</a></li>
+<li><a href="/wiki/Iris_aphylla" title="Iris aphylla">Stool iris</a></li>
+<li><a href="/wiki/Iris_pallida" title="Iris pallida">Sweet iris</a></li>
+<li><a href="/wiki/Iris_albicans" title="Iris albicans">White cemetery iris</a></li>
+<li><a href="/wiki/Iris_pseudacorus" title="Iris pseudacorus">Yellow iris</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background-color:#d8ebdf">Breeding and research</th><td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Edgar_Anderson" title="Edgar Anderson">Edgar Anderson</a></li>
+<li><a href="/wiki/A._J._Bliss" title="A. J. Bliss">A. J. Bliss</a></li>
+<li><a href="/wiki/William_Rickatson_Dykes" title="William Rickatson Dykes">William Rickatson Dykes</a></li>
+<li><a href="/wiki/Michael_Foster_(physiologist)" title="Michael Foster (physiologist)">Michael Foster</a></li>
+<li><a href="/wiki/George_Gessert" title="George Gessert">George Gessert</a></li>
+<li><a class="mw-selflink selflink"><i>Iris</i> flower data set</a></li>
+<li><a href="/wiki/Sydney_B._Mitchell" title="Sydney B. Mitchell">Sydney B. Mitchell</a></li>
+<li><a href="/wiki/Cedric_Morris" title="Cedric Morris">Cedric Morris</a></li>
+<li><a href="/wiki/Ethel_Anson_Peckham" title="Ethel Anson Peckham">Ethel Anson Peckham</a></li>
+<li><a href="/wiki/Lowell_Fitz_Randolph" title="Lowell Fitz Randolph">Lowell Fitz Randolph</a></li>
+<li><a href="/wiki/J._Marion_Shull" title="J. Marion Shull">J. Marion Shull</a></li>
+<li><a href="/wiki/Emily_Stevens_(hybridiser)" title="Emily Stevens (hybridiser)">Emily Stevens</a></li>
+<li><a href="/wiki/Grace_Sturtevant" title="Grace Sturtevant">Grace Sturtevant</a></li>
+<li><a href="/wiki/John_Caspar_Wister" title="John Caspar Wister">John Caspar Wister</a></li>
+<li><a href="/wiki/George_Yeld" title="George Yeld">George Yeld</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background-color:#d8ebdf">Products</th><td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Irone" title="Irone">Irone</a></li>
+<li><a href="/wiki/Orris_oil" title="Orris oil">Orris oil</a></li>
+<li><a href="/wiki/Orris_root" title="Orris root">Orris root</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background-color:#d8ebdf">Gardens and festivals</th><td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Mary_Helen_Wingate_Lloyd" title="Mary Helen Wingate Lloyd">Allgates Iris Bowl</a></li>
+<li><a href="/wiki/Banshu_Yamasaki_Iris_Garden" title="Banshu Yamasaki Iris Garden">Banshu Yamasaki Iris Garden</a></li>
+<li><a href="/wiki/Giardino_dell%27Iris" title="Giardino dell&#39;Iris">Giardino dell'Iris</a></li>
+<li><a href="/wiki/Greeneville,_Tennessee" title="Greeneville, Tennessee">Greeneville Iris Festival</a></li>
+<li><a href="/wiki/Itako,_Ibaraki" title="Itako, Ibaraki">Itako Ayame Matsuri</a></li>
+<li><a href="/wiki/Keizer,_Oregon#Annual_cultural_events" title="Keizer, Oregon">Keizer Iris Festival</a></li>
+<li><a href="/wiki/Mototeru_Kamo" title="Mototeru Kamo">Kamo Iris Garden</a></li>
+<li><a href="/wiki/Presby_Memorial_Iris_Gardens" title="Presby Memorial Iris Gardens">Presby Memorial Iris Gardens</a></li>
+<li><a href="/wiki/Swan_Lake/Iris_Gardens" class="mw-redirect" title="Swan Lake/Iris Gardens">Swan Lake/Iris Gardens</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background-color:#d8ebdf">Organizations</th><td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/American_Iris_Society" title="American Iris Society">American Iris Society</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;background-color:#d8ebdf">Iris in art and culture</th><td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Fleur-de-lis" title="Fleur-de-lis">Fleur-de-lis</a></li>
+<li><a href="/wiki/Irises_(painting)" title="Irises (painting)"><i>Irises</i> (painting)</a></li>
+<li><a href="/wiki/Banknotes_of_the_Japanese_yen#2004" title="Banknotes of the Japanese yen"> Japanese banknote</a></li>
+<li><a href="/wiki/Vincent_van_Gogh" title="Vincent van Gogh">Vincent van Gogh</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2" style="background-color:#aba4ee;"><div>
+<ul><li><a href="/wiki/Category:Iris_(plant)" title="Category:Iris (plant)">Category</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1321
+Cached time: 20200712124106
+Cache expiry: 2592000
+Dynamic content: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.296 seconds
+Real time usage: 2.365 seconds
+Preprocessor visited node count: 497/1000000
+Post‐expand include size: 29583/2097152 bytes
+Template argument size: 84/2097152 bytes
+Highest expansion depth: 8/40
+Expensive parser function count: 0/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 30610/5000000 bytes
+Lua time usage: 0.099/10.000 seconds
+Lua memory usage: 2.54 MB/50 MB
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  192.819      1 -total
+ 86.08%  165.972      1 Template:Reflist
+ 67.26%  129.690      4 Template:Cite_journal
+ 12.07%   23.269      1 Template:Iris
+  9.67%   18.644      1 Template:Navbox
+  4.71%    9.083      2 Template:Cite_web
+  3.96%    7.632      1 Template:Cite_conference
+  2.22%    4.282      1 Template:Main_other
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:10477224-0!canonical and timestamp 20200712124104 and revision id 962157652
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Iris_flower_data_set&amp;oldid=962157652">https://en.wikipedia.org/w/index.php?title=Iris_flower_data_set&amp;oldid=962157652</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Statistical_data_sets" title="Category:Statistical data sets">Statistical data sets</a></li><li><a href="/wiki/Category:Datasets_in_machine_learning" title="Category:Datasets in machine learning">Datasets in machine learning</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:CS1_maint:_multiple_names:_authors_list" title="Category:CS1 maint: multiple names: authors list">CS1 maint: multiple names: authors list</a></li><li><a href="/wiki/Category:Articles_with_example_Python_code" title="Category:Articles with example Python code">Articles with example Python code</a></li><li><a href="/wiki/Category:Articles_with_example_R_code" title="Category:Articles with example R code">Articles with example R code</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Iris+flower+data+set" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Iris+flower+data+set" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="/wiki/Iris_flower_data_set" title="View the content page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Talk:Iris_flower_data_set" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t">Talk</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="/wiki/Iris_flower_data_set">Read</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Iris_flower_data_set&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Iris_flower_data_set&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/w/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/wiki/Main_Page"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Visit a randomly selected article [x]" accesskey="x">Random article</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works">About Wikipedia</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact us</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation">Donate</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-interaction" class="vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<h3 id="p-interaction-label">
+		<span>Contribute</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r">Recent changes</a></li><li id="n-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia">Upload file</a></li></ul>
+		
+	</div>
+</nav>
+
+<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Iris_flower_data_set" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Iris_flower_data_set" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Iris_flower_data_set&amp;oldid=962157652" title="Permanent link to this revision of this page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Iris_flower_data_set&amp;action=info" title="More information about this page">Page information</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Iris_flower_data_set&amp;id=962157652&amp;wpFormIdentifier=titleform" title="Information on how to cite this page">Cite this page</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q4203254" title="Structured data on this page hosted by Wikidata [g]" accesskey="g">Wikidata item</a></li></ul>
+		
+	</div>
+</nav>
+
+<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-coll-print_export" class="vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<h3 id="p-coll-print_export-label">
+		<span>Print/export</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Iris+flower+data+set&amp;action=show-download-screen" title="Download this page as a PDF file">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Iris_flower_data_set&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-lang" class="vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<h3 id="p-lang-label">
+		<span>Languages</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D9%85%D8%AC%D9%85%D9%88%D8%B9%D8%A9_%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA_%D9%81%D9%8A%D8%B4%D8%B1" title="مجموعة بيانات فيشر – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-ca"><a href="https://ca.wikipedia.org/wiki/Conjunt_de_dades_de_flors_Iris" title="Conjunt de dades de flors Iris – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target">Català</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Conjunto_de_datos_flor_iris" title="Conjunto de datos flor iris – Spanish" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D9%85%D8%AC%D9%85%D9%88%D8%B9%D9%87_%D8%AF%D8%A7%D8%AF%D9%87_%DA%AF%D9%84_%D8%B2%D9%86%D8%A8%D9%82" title="مجموعه داده گل زنبق – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Iris_de_Fisher" title="Iris de Fisher – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Dataset_Iris" title="Dataset Iris – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.wikipedia.org/wiki/Conjunto_de_dados_flor_Iris" title="Conjunto de dados flor Iris – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target">Português</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%98%D1%80%D0%B8%D1%81%D1%8B_%D0%A4%D0%B8%D1%88%D0%B5%D1%80%D0%B0" title="Ирисы Фишера – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%86%D1%80%D0%B8%D1%81%D0%B8_%D0%A4%D1%96%D1%88%D0%B5%D1%80%D0%B0" title="Іриси Фішера – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E5%AE%89%E5%BE%B7%E6%A3%AE%E9%B8%A2%E5%B0%BE%E8%8A%B1%E5%8D%89%E6%95%B0%E6%8D%AE%E9%9B%86" title="安德森鸢尾花卉数据集 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q4203254#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 12 June 2020, at 12:21<span class="anonymous-show">&#160;(UTC)</span>.</li>
+		<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+		<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+		<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+		<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+		<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+		<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Iris_flower_data_set&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.296","walltime":"2.365","ppvisitednodes":{"value":497,"limit":1000000},"postexpandincludesize":{"value":29583,"limit":2097152},"templateargumentsize":{"value":84,"limit":2097152},"expansiondepth":{"value":8,"limit":40},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":30610,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  192.819      1 -total"," 86.08%  165.972      1 Template:Reflist"," 67.26%  129.690      4 Template:Cite_journal"," 12.07%   23.269      1 Template:Iris","  9.67%   18.644      1 Template:Navbox","  4.71%    9.083      2 Template:Cite_web","  3.96%    7.632      1 Template:Cite_conference","  2.22%    4.282      1 Template:Main_other"]},"scribunto":{"limitreport-timeusage":{"value":"0.099","limit":"10.000"},"limitreport-memusage":{"value":2665199,"limit":52428800}},"cachereport":{"origin":"mw1321","timestamp":"20200712124106","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Iris flower data set","url":"https:\/\/en.wikipedia.org\/wiki\/Iris_flower_data_set","sameAs":"http:\/\/www.wikidata.org\/entity\/Q4203254","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q4203254","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2007-04-05T14:59:25Z","dateModified":"2020-06-12T12:21:41Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/56\/Iris_dataset_scatterplot.svg"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":115,"wgHostname":"mw1393"});});</script></body></html>
