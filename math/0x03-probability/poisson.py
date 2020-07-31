@@ -27,3 +27,38 @@ class Poisson:
             if len(data) < 2:
                 raise ValueError('data must contain multiple values')
             self.lambtha = float(sum(data) / len(data))
+
+    @staticmethod
+    def factorial(n):
+        """
+        Calculates the factorial of n
+        """
+        fn = 1
+        for i in range(2, n + 1):
+            fn *= i
+        return fn
+
+    def pmf(self, k):
+        """
+        Probability mass function
+        Calculates the value of the PMF for a given number of “successes”
+        k is the number of “successes”
+        """
+        k = int(k)
+        if k < 0:
+            return 0
+        return Poisson.e ** -self.lambtha * self.lambtha ** k \
+            / Poisson.factorial(k)
+
+    def cdf(self, k):
+        """
+        Cumulative distribution function
+        Calculates the value of the CDF for a given number of “successes”
+        k is the number of “successes”
+        """
+        k = int(k)
+        if k < 0:
+            return 0
+        return Poisson.e ** -self.lambtha * \
+            sum([(self.lambtha ** i) / Poisson.factorial(i)
+                 for i in range(0, k + 1)])
