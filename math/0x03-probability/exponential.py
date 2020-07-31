@@ -40,7 +40,7 @@ class Exponential:
     def cdf(self, x):
         """
         Cumulative distribution function
-        Calculates the value of the CDF for a given number of “successes”
+        Calculates the value of the CDF for a given time period
         x is the time period
         """
         if x < 0:
