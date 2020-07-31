@@ -6,7 +6,7 @@ Exponential distribution
 
 class Exponential:
     """
-    Class to represent a poisson distribution
+    Class to represent an Exponential distribution
     """
     e = 2.7182818285
 

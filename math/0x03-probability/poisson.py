@@ -6,7 +6,7 @@ Poisson distribution
 
 class Poisson:
     """
-    Class to represent a poisson distribution
+    Class to represent a Poisson distribution
     """
     e = 2.7182818285
 
