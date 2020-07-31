@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Poisson distribution
+Exponential distribution
 """
 
 
-class Poisson:
+class Exponential:
     """
     Class to represent a poisson distribution
     """
@@ -12,7 +12,7 @@ class Poisson:
 
     def __init__(self, data=None, lambtha=1.):
         """
-        Poisson Constructor
+        Exponential Constructor
         data is a list of the data to be used to estimate the distribution
         lambtha is the expected number of occurences in a given time frame
         """
@@ -25,39 +25,24 @@ class Poisson:
                 raise TypeError('data must be a list')
             if len(data) < 2:
                 raise ValueError('data must contain multiple values')
-            self.lambtha = float(sum(data) / len(data))
+            self.lambtha = 1 / (float(sum(data) / len(data)))
 
-    @staticmethod
-    def factorial(n):
+    def pdf(self, x):
         """
-        Calculates the factorial of n
+        Probability density function
+        Calculates the value of the PDF for a given time period
+        x is the time period
         """
-        fn = 1
-        for i in range(2, n + 1):
-            fn *= i
-        return fn
-
-    def pmf(self, k):
-        """
-        Probability mass function
-        Calculates the value of the PMF for a given number of “successes”
-        k is the number of “successes”
-        """
-        k = int(k)
-        if k < 0:
+        if x < 0:
             return 0
-        return Poisson.e ** -self.lambtha * self.lambtha ** k \
-            / Poisson.factorial(k)
+        return self.lambtha * Exponential.e ** (-self.lambtha * x)
 
-    def cdf(self, k):
+    def cdf(self, x):
         """
         Cumulative distribution function
         Calculates the value of the CDF for a given number of “successes”
-        k is the number of “successes”
+        x is the time period
         """
-        k = int(k)
-        if k < 0:
+        if x < 0:
             return 0
-        return Poisson.e ** -self.lambtha * \
-            sum([(self.lambtha ** i) / Poisson.factorial(i)
-                 for i in range(k + 1)])
+        return 1 - Exponential.e ** (-self.lambtha * x)
