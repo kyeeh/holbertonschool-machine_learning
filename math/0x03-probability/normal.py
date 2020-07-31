@@ -69,9 +69,9 @@ class Normal:
 
     def cdf(self, x):
         """
-        Cumulative distribution function
-        Calculates the value of the CDF for a given time period
-        x is the time period
+        Calculates the value of the CDF for a given x-value
+        x is the x-value
+        Returns the CDF value for x
         """
         return (1/2) * (1 + Normal.erf(((x - self.mean) / (self.stddev
                                         * (2 ** (1/2))))))
