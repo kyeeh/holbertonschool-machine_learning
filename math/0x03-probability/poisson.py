@@ -9,6 +9,7 @@ class Poisson:
     Class to represent a poisson distribution
     """
     e = 2.7182818285
+    π = 3.1415926536
 
     def __init__(self, data=None, lambtha=1.):
         """
