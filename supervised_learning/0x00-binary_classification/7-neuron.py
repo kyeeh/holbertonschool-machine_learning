@@ -164,7 +164,6 @@ class Neuron:
             if (step <= 0) or (step > iterations):
                 raise ValueError('step must be positive and <= iterations')
         for i in range(iterations + 1):
-            # prd, lrc = self.evaluate(X, Y)
             self.forward_prop(X)
             lrc = self.cost(Y, self.__A)
             if i % step == 0:
