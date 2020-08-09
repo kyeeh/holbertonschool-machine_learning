@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Data
-supervised_learning/0x00-binary_classification/data
+supervised_learning/data
