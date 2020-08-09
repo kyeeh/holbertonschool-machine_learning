@@ -57,11 +57,11 @@ class Neuron:
         Calculates the forward propagation of the neuron using a sigmoid
         activation function
 
-        X is a numpy.ndarray with shape (nx, m) that contains the input data
-        nx is the number of input features to the neuron
-        m is the number of examples
-        fn is the neuron function applying weigths to input data + bias, it
-        calculates the input for sigmoid activation function
+        X: is a numpy.ndarray with shape (nx, m) that contains the input data
+           nx is the number of input features to the neuron
+        m: is the number of examples
+        fn: is the neuron function applying weigths to input data + bias, it
+            calculates the input for sigmoid activation function
         Returns the private attribute __A
         """
         fn = np.matmul(self.__W, X) + self.__b
@@ -72,12 +72,11 @@ class Neuron:
         """
         Calculates the cost of the model using logistic regression (lrc)
 
-        Y is a numpy.ndarray with shape (1, m) that contains the correct
-        labels for the input data
-        A is a numpy.ndarray with shape (1, m) containing the activated output
-        of the neuron for each example
-        To avoid division by zero errors it's used 1.0000001 - A instead of
-        1 - A
+        Y: is a numpy.ndarray with shape (1, m) that contains the correct
+           labels for the input data
+        A: is a numpy.ndarray with shape (1, m) containing the activated output
+           of the neuron for each example
+        To avoid division by zero errors used is 1.0000001 - A instead of 1-A
         Returns the cost
         """
         lrc = np.sum(Y * np.log(A) + (1 - Y) * (np.log(1.0000001 - A)))
