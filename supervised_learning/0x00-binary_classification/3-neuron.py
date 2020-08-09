@@ -62,6 +62,7 @@ class Neuron:
         m is the number of examples
         fn is the neuron function applying weigths to input data + bias, it
         calculates the input for sigmoid activation function
+        Returns the private attribute __A
         """
         fn = np.matmul(self.__W, X) + self.__b
         self.__A = 1. / (1 + np.exp(-fn))
@@ -77,6 +78,7 @@ class Neuron:
         of the neuron for each example
         To avoid division by zero errors it's used 1.0000001 - A instead of
         1 - A
+        Returns the cost
         """
         lrc = np.sum(Y * np.log(A) + (1 - Y) * (np.log(1.0000001 - A)))
         return (-1 / Y.shape[1]) * lrc
