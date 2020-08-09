@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Data
+supervised_learning/0x00-binary_classification/data
