@@ -1,57 +1,92 @@
 #!/usr/bin/env python3
 """
-Neuron Class
+Neural Network Class
 """
 import matplotlib.pyplot as plt
 import numpy as np
 
 
-class Neuron:
+class NeuralNetwork:
     """
-    Defines a single neuron performing binary classification
+    Defines a neural network with one hidden layer to do binary classification
     """
 
-    def __init__(self, nx):
+    def __init__(self, nx, nodes):
         """
         Constructor method
         ------------------
 
-        nx: is the number of input features to the neuron
-        W: The weights vector for the neuron. Upon instantiation, it should be
-           initialized using a random normal distribution.
-        b: The bias for the neuron. Upon instantiation, it should be
-           initialized to 0.
-        A: The activated output of the neuron (prediction). Upon
-           instantiation, it should be initialized to 0.
+        nx: it's the number of input features to the neuron
+        nodes: it's the number of nodes found in the hidden layer
+        W1: The weights vector for the hidden layer. Upon instantiation, it
+            should be initialized using a random normal distribution.
+        b1: The bias for the hidden layer. Upon instantiation, it should be
+            initialized with 0’s.
+        A1: The activated output for the hidden layer. Upon instantiation, it
+            should be initialized to 0.
+        W2: The weights vector for the output neuron. Upon instantiation, it
+            should be initialized using a random normal distribution.
+        b2: The bias for the output neuron. Upon instantiation, it should be
+            initialized to 0.
+        A2: The activated output for the output neuron (prediction). Upon
+            instantiation, it should be initialized to 0.
         """
         if type(nx) is not int:
             raise TypeError('nx must be an integer')
         if nx < 1:
             raise ValueError('nx must be a positive integer')
-        self.__W = np.random.randn(nx).reshape(1, nx)
-        self.__b = 0
-        self.__A = 0
+        if type(nodes) is not int:
+            raise TypeError('nodes must be an integer')
+        if nodes < 1:
+            raise ValueError('nodes must be a positive integer')
+        self.__W1 = np.random.randn(nodes, nx)
+        self.__b1 = np.zeros((nodes, 1))
+        self.__A1 = 0
+        self.__W2 = np.random.randn(1, nodes)
+        self.__b2 = 0
+        self.__A2 = 0
 
     @property
-    def W(self):
+    def W1(self):
         """
         Getter method for weights
         """
-        return self.__W
+        return self.__W1
 
     @property
-    def b(self):
+    def b1(self):
         """
         Getter method for bias
         """
-        return self.__b
+        return self.__b1
 
     @property
-    def A(self):
+    def A1(self):
         """
         Getter method for activated output
         """
-        return self.__A
+        return self.__A1
+
+    @property
+    def W2(self):
+        """
+        Getter method for weights
+        """
+        return self.__W2
+
+    @property
+    def b2(self):
+        """
+        Getter method for bias
+        """
+        return self.__b2
+
+    @property
+    def A2(self):
+        """
+        Getter method for activated output
+        """
+        return self.__A2
 
     def forward_prop(self, X):
         """
@@ -64,11 +99,13 @@ class Neuron:
         fn: It's the neuron function applying weigths to input data + bias, it
             calculates the input for sigmoid activation function
 
-        Returns the private attribute __A
+        Returns the private attributes __A1 and __A2, respectively
         """
-        fn = np.matmul(self.__W, X) + self.__b
-        self.__A = 1. / (1 + np.exp(-fn))
-        return self.__A
+        fn1 = np.matmul(self.__W1, X) + self.__b1
+        self.__A1 = 1 / (1 + np.exp(-fn1))
+        fn2 = np.matmul(self.__W2, self.__A1) + self.__b2
+        self.__A2 = 1 / (1 + np.exp(-fn2))
+        return self.__A1, self.__A2
 
     def cost(self, Y, A):
         """
@@ -103,11 +140,11 @@ class Neuron:
           and 0 otherwise
         """
         self.forward_prop(X)
-        lrc = self.cost(Y, self.__A)
-        prd = np.where(self.__A >= 0.5, 1, 0)
+        lrc = self.cost(Y, self.__A2)
+        prd = np.where(self.__A2 >= 0.5, 1, 0)
         return (prd, lrc)
 
-    def gradient_descent(self, X, Y, A, alpha=0.05):
+    def gradient_descent(self, X, Y, A1, A2, alpha=0.05):
         """
         Calculates one pass of gradient descent on the neuron
 
@@ -116,40 +153,51 @@ class Neuron:
            m: It's the number of examples
         Y: It's a numpy.ndarray with shape (1, m) that contains the correct
            labels for the input data
-        A: It's a numpy.ndarray with shape (1, m) containing the activated
-           output of the neuron for each example
+        A1: it's the output of the hidden layer
+        A2: it's the predicted output
         alpha: It's the learning rate
-        Updates the private attributes __W and __b
+
+        Updates the private attributes __W1, __b1, __W2, and __b2
         """
-        m = X.shape[1]
-        dz = A - Y
-        dw = np.matmul(dz, X.T) / m
-        db = np.sum(dz) / m
-        self.__W = self.__W - (alpha * dw)
-        self.__b = self.__b - (alpha * db)
+        m = A1.shape[1]
+        dz2 = A2 - Y
+        dw2 = np.matmul(dz2, A1.T) / m
+        db2 = np.sum(dz2, axis=1, keepdims=True) / m
+
+        dz1a = np.matmul(self.__W2.T, dz2)
+        dz1b = A1 * (1 - A1)
+        dz1 = dz1a * dz1b
+        dw1 = np.matmul(dz1, X.T) / m
+        db1 = np.sum(dz1, axis=1, keepdims=True) / m
+
+        self.__W1 = self.__W1 - (alpha * dw1)
+        self.__b1 = self.__b1 - (alpha * db1)
+        self.__W2 = self.__W2 - (alpha * dw2)
+        self.__b2 = self.__b2 - (alpha * db2)
 
     def train(self, X, Y, iterations=5000, alpha=0.05, verbose=True,
               graph=True, step=100):
         """
-        Trains the neuron by updating the private attributes __W, __b, and __A
+        Trains the neuron
 
-        X: It's a numpy.ndarray with shape (nx, m) that contains the input data
-           nx: It's the number of input features to the neuron
-           m: It's the number of examples
-        Y: It's a numpy.ndarray with shape (1, m) that contains the correct
+        X: it's a numpy.ndarray with shape (nx, m) that contains the input data
+           nx: it's the number of input features to the neuron
+           m: it's the number of examples
+        Y: it's a numpy.ndarray with shape (1, m) that contains the correct
            labels for the input data
         iterations: it's the number of iterations to train over
-        alpha: It's the learning rate
-        verbose: It's a boolean that defines whether or not to print
+        alpha: it's the learning rate
+        verbose: it's a boolean that defines whether or not to print
         information about the training
-        graph: It's a boolean that defines whether or not to graph information
+        graph: it's a boolean that defines whether or not to graph information
         about the training once the training has completed.
-        Updates the private attributes __W and __b
+        Updates the private attributes __W1, __b1, __A1, __W2, __b2, and __A2
 
-        Returns the evaluation of the training data after n iterations
+        Returns the evaluation of the training data after iterations of
+        training have occurred
         """
         itr_data = []
-        lrc_data = []
+        lrc_data = []        
         if type(iterations) is not int:
             raise TypeError('iterations must be an integer')
         if iterations <= 0:
@@ -165,13 +213,13 @@ class Neuron:
                 raise ValueError('step must be positive and <= iterations')
         for i in range(iterations + 1):
             self.forward_prop(X)
-            lrc = self.cost(Y, self.__A)
+            lrc = self.cost(Y, self.__A2)
             if i % step == 0:
                 lrc_data.append(lrc)
                 itr_data.append(i)
                 if verbose:
                     print("Cost after {} iterations: {}".format(i, lrc))
-            self.gradient_descent(X, Y, self.__A, alpha)
+            self.gradient_descent(X, Y, self.__A1, self.__A2, alpha)
         if graph:
             plt.plot(itr_data, lrc_data)
             plt.xlabel('iteration')
