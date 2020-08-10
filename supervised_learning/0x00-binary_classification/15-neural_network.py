@@ -197,7 +197,7 @@ class NeuralNetwork:
         training have occurred
         """
         itr_data = []
-        lrc_data = []        
+        lrc_data = []
         if type(iterations) is not int:
             raise TypeError('iterations must be an integer')
         if iterations <= 0:
