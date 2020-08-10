@@ -38,7 +38,7 @@ class DeepNeuralNetwork:
         randn = np.random.randn
         for i in range(len(lys)):
             if (type(lys[i]) is not int) and (lys[i] <= 0):
-                raise ValueError('layers must be a list of positive integers')
+                raise TypeError('layers must be a list of positive integers')
             if i == 0:
                 self.weights['W1'] = randn(lys[i], nx) * np.sqrt(2 / nx)
             else:
