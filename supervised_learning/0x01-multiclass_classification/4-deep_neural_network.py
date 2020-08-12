@@ -107,14 +107,14 @@ class DeepNeuralNetwork:
             w = self.weights['W{}'.format(i + 1)]
             fn = np.matmul(w, a) + b
             if i == self.L - 1:
-                aux = np.sum(np.exp(fn), axis=0)
+                aux = np.sum(np.exp(fn), axis=0, keepdims=True)
                 self.__cache['A{}'.format(i + 1)] = np.exp(fn) / aux
             else:
-                if self.activation == 'sig':
+                if self.__activation == 'sig':
                     self.__cache['A{}'.format(i + 1)] = 1 / (1 + np.exp(-fn))
                 else:
                     self.__cache['A{}'.format(i + 1)] = np.tanh(fn)
-        return (self.__cache['A{}'.format(self.__L)], self.__cache)  # dCheck
+        return (self.__cache['A{}'.format(i + 1)], self.__cache)
 
     def cost(self, Y, A):
         """

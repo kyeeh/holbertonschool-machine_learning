@@ -16,7 +16,7 @@ def one_hot_encode(Y, classes):
     """
     if (len(Y) == 0) or (type(Y) != np.ndarray):
         return None
-    if (classes < np.max(Y)) or (type(classes) != int):
+    if ((type(classes) is not int or classes < np.max(Y))):
         return None
     ax = np.arange(len(Y))
     ohm = np.zeros((classes, len(Y)))
