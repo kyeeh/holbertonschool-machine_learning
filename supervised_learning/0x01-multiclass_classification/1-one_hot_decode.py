@@ -14,6 +14,6 @@ def one_hot_decode(one_hot):
     Returns: a numpy.ndarray with shape (m, ) containing the numeric labels
     for each example, or None on failure
     """
-    if len(one_hot.shape) == 2 and isinstance(one_hot, np.ndarray):
+    if isinstance(one_hot, np.ndarray) and len(one_hot.shape) == 2:
         return np.argmax(one_hot, axis=0)
     return None
