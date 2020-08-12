@@ -14,10 +14,10 @@ def one_hot_encode(Y, classes):
     Returns: a one-hot matrix (ohm) encoding of Y with shape (classes,m), or
     None on failure
     """
-    ohm = None
-    if len(Y) > 0 and isinstance(Y, np.ndarray) and classes >= np.amax(Y)\
-            and type(classes) is int:
-        ax = np.arange(len(Y))
-        ohm = np.zeros((classes, len(Y)))
-        ohm[Y, ax] = 1
+    if len(Y) <= 0 or (not isinstance(Y, np.ndarray)) or classes < np.amax(Y)\
+            or type(classes) is not int:
+        return None
+    ax = np.arange(len(Y))
+    ohm = np.zeros((classes, len(Y)))
+    ohm[Y, ax] = 1
     return ohm
