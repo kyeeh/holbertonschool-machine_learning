@@ -4,6 +4,7 @@ Deep Neural Network Class
 """
 import matplotlib.pyplot as plt
 import numpy as np
+import pickle
 
 
 class DeepNeuralNetwork:
@@ -204,7 +205,7 @@ class DeepNeuralNetwork:
                 lrc_data.append(lrc)
                 itr_data.append(i)
                 if verbose:
-                    print("Cost after {} iterations: {}".format(i, lrc))
+                    print('Cost after {} iterations: {}'.format(i, lrc))
             self.gradient_descent(Y, self.__cache, alpha)
         if graph:
             plt.plot(itr_data, lrc_data)
@@ -213,3 +214,26 @@ class DeepNeuralNetwork:
             plt.suptitle("Training Cost")
             plt.show()
         return self.evaluate(X, Y)
+
+    def save(self, filename):
+        """
+        Saves the instance object to a file in pickle format
+        filename is the file to which the object should be saved
+        """
+        if filename[-4] != ('.pkl'):
+            filename += '.pkl'
+        with open(filename, 'wb') as pf:
+            pickle.dump(self, pf)
+
+    @staticmethod
+    def load(filename):
+        """
+        Loads a pickled DeepNeuralNetwork object
+        Returns: the loaded object, or None if filename doesn’t exist
+        """
+        try:
+            with open(filename, 'rb') as f:
+                pdnn = pickle.load(f)
+                return pdnn
+        except FileNotFoundError:
+            return None

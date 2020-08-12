@@ -4,6 +4,7 @@ Deep Neural Network Class
 """
 import matplotlib.pyplot as plt
 import numpy as np
+import pickle
 
 
 class DeepNeuralNetwork:
@@ -74,9 +75,7 @@ class DeepNeuralNetwork:
         Calculates the forward propagation of the neuron using a sigmoid
         activation function
 
-        X: It's a numpy.ndarray with shape (nx,m) that contains the input data
-          - nx: is the number of input features to the neuron
-          - m: It's the number of examples
+        X: one-hot numpy.ndarray of shape (classes, m)
         Updates the private attribute __cache
           - The activated outputs of each layer should be saved in the __cache
             dictionary using the key A{l} where {l} is the hidden layer the
@@ -92,22 +91,25 @@ class DeepNeuralNetwork:
             b = self.weights['b{}'.format(i + 1)]
             w = self.weights['W{}'.format(i + 1)]
             fn = np.matmul(w, a) + b
-            self.__cache['A{}'.format(i + 1)] = 1 / (1 + np.exp(-fn))
+            if i == self.L - 1:
+                aux = np.sum(np.exp(fn), axis=0)
+                self.__cache['A{}'.format(i + 1)] = np.exp(fn) / aux
+            else:
+                self.__cache['A{}'.format(i + 1)] = 1 / (1 + np.exp(-fn))
         return (self.__cache['A{}'.format(self.__L)], self.__cache)
 
     def cost(self, Y, A):
         """
         Calculates the cost of the model using logistic regression (lrc)
 
-        Y: It's a numpy.ndarray with shape (1, m) that contains the correct
-           labels for the input data
+        Y: It's a one-hot numpy.ndarray of shape (classes, m)
         A: It's a numpy.ndarray with shape (1, m) containing the activated
            output of the neuron for each example
         To avoid division by zero errors used is 1.0000001 - A instead of 1-A
 
         Returns the cost
         """
-        lrc = np.sum(Y * np.log(A) + (1 - Y) * (np.log(1.0000001 - A)))
+        lrc = np.sum(Y * np.log(A))
         return -lrc / Y.shape[1]
 
     def evaluate(self, X, Y):
@@ -122,15 +124,14 @@ class DeepNeuralNetwork:
         Returns the neuron’s prediction (prd) and the cost of the network,
         respectively
 
-        - The prediction should be a numpy.ndarray with shape (1, m) containing
-          the predicted labels for each example
         - The label values should be 1 if the output of the network is >= 0.5
           and 0 otherwise
         """
         self.forward_prop(X)
         A = self.__cache['A{}'.format(self.__L)]
         lrc = self.cost(Y, A)
-        prd = np.where(A >= 0.5, 1, 0)
+        lbl = np.max(A, axis=0)
+        prd = np.where(A == lbl, 1, 0)
         return (prd, lrc)
 
     def gradient_descent(self, Y, cache, alpha=0.05):
@@ -204,7 +205,7 @@ class DeepNeuralNetwork:
                 lrc_data.append(lrc)
                 itr_data.append(i)
                 if verbose:
-                    print("Cost after {} iterations: {}".format(i, lrc))
+                    print('Cost after {} iterations: {}'.format(i, lrc))
             self.gradient_descent(Y, self.__cache, alpha)
         if graph:
             plt.plot(itr_data, lrc_data)
@@ -213,3 +214,26 @@ class DeepNeuralNetwork:
             plt.suptitle("Training Cost")
             plt.show()
         return self.evaluate(X, Y)
+
+    def save(self, filename):
+        """
+        Saves the instance object to a file in pickle format
+        filename is the file to which the object should be saved
+        """
+        if filename[-4] != ('.pkl'):
+            filename += '.pkl'
+        with open(filename, 'wb') as pf:
+            pickle.dump(self, pf)
+
+    @staticmethod
+    def load(filename):
+        """
+        Loads a pickled DeepNeuralNetwork object
+        Returns: the loaded object, or None if filename doesn’t exist
+        """
+        try:
+            with open(filename, 'rb') as f:
+                pdnn = pickle.load(f)
+                return pdnn
+        except FileNotFoundError:
+            return None

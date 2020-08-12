@@ -14,7 +14,7 @@ def one_hot_encode(Y, classes):
     Returns: a one-hot matrix (ohm) encoding of Y with shape (classes,m), or
     None on failure
     """
-    if (len(Y) <= 0) or (type(Y) != np.ndarray):
+    if (len(Y) == 0) or (type(Y) != np.ndarray):
         return None
     if (classes < np.max(Y)) or (type(classes) != int):
         return None
