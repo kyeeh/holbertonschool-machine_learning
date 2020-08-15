@@ -39,7 +39,7 @@ class DeepNeuralNetwork:
         for i in range(self.__L):
             h = i - 1
             k = "W{}".format(i + 1)
-            if (type(ls[i]) is not int) or (ls[i] < 0):
+            if (type(ls[i]) is not int) or (ls[i] < 1):
                 raise TypeError('layers must be a list of positive integers')
             if i == 0:
                 self.weights['W1'] = np.random.randn(ls[i], nx) * np.sqrt(2/nx)
