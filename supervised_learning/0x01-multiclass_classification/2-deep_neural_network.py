@@ -202,7 +202,7 @@ class DeepNeuralNetwork:
             if i % step == 0:
                 lrc_data.append(lrc)
                 itr_data.append(i)
-                if verbose is True:
+                if verbose:
                     print('Cost after {} iterations: {}'.format(i, lrc))
             self.gradient_descent(Y, self.__cache, alpha)
         if graph:

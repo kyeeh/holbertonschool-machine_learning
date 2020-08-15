@@ -241,7 +241,7 @@ class DeepNeuralNetwork:
         Saves the instance object to a file in pickle format
         filename is the file to which the object should be saved
         """
-        if filename[-4] != ('.pkl'):
+        if filename[-4:] != '.pkl':
             filename += '.pkl'
         with open(filename, 'wb') as pf:
             pickle.dump(self, pf)
