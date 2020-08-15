@@ -34,19 +34,18 @@ class DeepNeuralNetwork:
         self.__L = len(layers)
         self.__cache = {}
         self.__weights = {}
-        ls = layers
-        randn = np.random.randn
         for i in range(self.__L):
             h = i - 1
             k = "W{}".format(i + 1)
-            if (type(ls[i]) is not int) or (ls[i] < 1):
+            if (type(layers[i]) is not int) or (layers[i] < 1):
                 raise TypeError('layers must be a list of positive integers')
             if i == 0:
-                self.weights['W1'] = np.random.randn(ls[i], nx) * np.sqrt(2/nx)
+                self.weights['W1'] = np.random.randn(layers[i], nx) \
+                    * np.sqrt(2 / nx)
             else:
-                self.weights[k] = np.random.randn(ls[i], ls[h]) \
-                    * np.sqrt(2 / ls[h])
-            self.weights["b{}".format(i + 1)] = np.zeros((ls[i], 1))
+                self.weights[k] = np.random.randn(layers[i], layers[h]) \
+                    * np.sqrt(2 / layers[h])
+            self.weights["b{}".format(i + 1)] = np.zeros((layers[i], 1))
 
     @property
     def L(self):
@@ -203,7 +202,7 @@ class DeepNeuralNetwork:
             if i % step == 0:
                 lrc_data.append(lrc)
                 itr_data.append(i)
-                if verbose:
+                if verbose is True:
                     print('Cost after {} iterations: {}'.format(i, lrc))
             self.gradient_descent(Y, self.__cache, alpha)
         if graph:
@@ -219,7 +218,7 @@ class DeepNeuralNetwork:
         Saves the instance object to a file in pickle format
         filename is the file to which the object should be saved
         """
-        if filename[-4] != ('.pkl'):
+        if filename[-4:] != '.pkl':
             filename += '.pkl'
         with open(filename, 'wb') as pf:
             pickle.dump(self, pf)
