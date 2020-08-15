@@ -31,23 +31,22 @@ class DeepNeuralNetwork:
             raise ValueError('nx must be a positive integer')
         if type(layers) is not list or len(layers) == 0:
             raise TypeError('layers must be a list of positive integers')
-        self.nx = nx
-        self.layers = layers
         self.__L = len(layers)
         self.__cache = {}
         self.__weights = {}
-        lys = layers
+        ls = layers
         randn = np.random.randn
-        for i in range(len(lys)):
-            if (type(lys[i]) is not int) or (lys[i] <= 0):
+        for i in range(self.__L):
+            h = i - 1
+            k = "W{}".format(i + 1)
+            if (type(ls[i]) is not int) or (ls[i] < 0):
                 raise TypeError('layers must be a list of positive integers')
             if i == 0:
-                self.weights['W1'] = randn(lys[i], nx) * np.sqrt(2 / nx)
+                self.weights['W1'] = np.random.randn(ls[i], nx) * np.sqrt(2/nx)
             else:
-                k = "W{}".format(i + 1)
-                h = i - 1
-                self.weights[k] = randn(lys[i], lys[h]) * np.sqrt(2 / lys[h])
-            self.weights["b{}".format(i + 1)] = np.zeros((lys[i], 1))
+                self.weights[k] = np.random.randn(ls[i], ls[h]) \
+                    * np.sqrt(2 / ls[h])
+            self.weights["b{}".format(i + 1)] = np.zeros((ls[i], 1))
 
     @property
     def L(self):
@@ -88,10 +87,10 @@ class DeepNeuralNetwork:
         Returns the output of the neural network and the cache, respectively
         """
         self.__cache['A0'] = X
-        for i in range(self.L):
+        for i in range(self.__L):
             a = self.__cache['A{}'.format(i)]
-            b = self.weights['b{}'.format(i + 1)]
-            w = self.weights['W{}'.format(i + 1)]
+            b = self.__weights['b{}'.format(i + 1)]
+            w = self.__weights['W{}'.format(i + 1)]
             fn = np.matmul(w, a) + b
             self.__cache['A{}'.format(i + 1)] = 1 / (1 + np.exp(-fn))
         return (self.__cache['A{}'.format(self.__L)], self.__cache)
@@ -232,8 +231,8 @@ class DeepNeuralNetwork:
         Returns: the loaded object, or None if filename doesn’t exist
         """
         try:
-            with open(filename, 'rb') as f:
-                pdnn = pickle.load(f)
+            with open(filename, 'rb') as pf:
+                pdnn = pickle.load(pf)
                 return pdnn
         except FileNotFoundError:
             return None
