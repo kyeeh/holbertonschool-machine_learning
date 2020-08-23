@@ -7,6 +7,8 @@ import numpy as np
 
 def normalize(X, m, s):
     """
+    Normalizes (standardizes) a matrix
+
     X is the numpy.ndarray of shape (d, nx) to normalize
 
         d is the number of data points
