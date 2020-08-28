@@ -6,6 +6,29 @@ import numpy as np
 import tensorflow as tf
 
 
+def create_layer(prev, n, activation):
+    """
+    prev is the tensor output of the previous layer
+    n is the number of nodes in the layer to create
+    activation is the activation function that the layer should use
+    use tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG") to
+    implement He et. al initialization for the layer weights
+    each layer should be given the name layer
+
+    Returns: the tensor output of the layer
+    """
+    init_heetal = tf.contrib.layers \
+                    .variance_scaling_initializer(mode="FAN_AVG")
+
+    layer = tf.layers.Dense(
+        units=n,
+        name='layer',
+        activation=activation,
+        kernel_initializer=init_heetal
+    )
+    return layer(prev)
+
+
 def create_batch_norm_layer(prev, n, activation):
     """
     Creates a batch normalization layer for a neural network in tensorflow
@@ -26,6 +49,9 @@ def create_batch_norm_layer(prev, n, activation):
 
     Returns: a tensor of the activated output for the layer
     """
+    if activation is None:
+        return create_layer(prev, n, activation)
+
     heetal = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
     layers = tf.layers.Dense(units=n, activation=None,
                              kernel_initializer=heetal)
@@ -38,8 +64,6 @@ def create_batch_norm_layer(prev, n, activation):
     znorm = tf.nn.batch_normalization(lyr, mean=mean, variance=varz,
                                       offset=beta, scale=gamma,
                                       variance_epsilon=1e-8)
-    if activation is None:
-        return znorm
     return activation(znorm)
 
 
@@ -55,8 +79,8 @@ def forward_prop(x, layer_sizes=[], activations=[]):
     """
     prd = create_batch_norm_layer(x, layer_sizes[0], activations[0])
     for i in range(1, len(layer_sizes)):
-        prd = create_batch_norm_layer(x, layer_sizes[i], activations[i])
-    return prd
+        prd = create_batch_norm_layer(prd, layer_sizes[i], activations[i])
+    return prd   
 
 
 def calculate_accuracy(y, y_pred):
