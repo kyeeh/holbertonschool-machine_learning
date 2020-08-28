@@ -80,7 +80,7 @@ def forward_prop(x, layer_sizes=[], activations=[]):
     prd = create_batch_norm_layer(x, layer_sizes[0], activations[0])
     for i in range(1, len(layer_sizes)):
         prd = create_batch_norm_layer(prd, layer_sizes[i], activations[i])
-    return prd   
+    return prd
 
 
 def calculate_accuracy(y, y_pred):
