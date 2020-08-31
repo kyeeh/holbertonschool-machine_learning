@@ -2,39 +2,22 @@
 """
 Error Analysis Module
 """
-import numpy as np
+import tensorflow as tf
 
 
-def dropout_gradient_descent(Y, weights, cache, alpha, keep_prob, L):
+def dropout_create_layer(prev, n, activation, keep_prob):
     """
-    Updates the weights of a neural network with Dropout regularization using
-    gradient descent
+    Creates a layer of a neural network using dropout
 
-    Y is a one-hot numpy.ndarray of shape (classes, m) that contains the
-    correct labels for the data
-        classes is the number of classes
-        m is the number of data points
-
-    weights is a dictionary of the weights and biases of the neural network
-    cache is a dictionary of the outputs and dropout masks of each layer of
-    the neural network
-    alpha is the learning rate
+    prev is a tensor containing the output of the previous layer
+    n is the number of nodes the new layer should contain
+    activation is the activation function that should be used on the layer
     keep_prob is the probability that a node will be kept
-    L is the number of layers of the network
-    All layers use thetanh activation function except the last, which uses
-    the softmax activation function
 
-    The weights of the network should be updated in place
+    Returns: the output of the new layer
     """
-    m = Y.shape[1]
-    dz = [cache['A{}'.format(L)] - Y]
-    for layer in range(L, 0, -1):
-        A = cache['A{}'.format(layer - 1)]
-        W = weights['W{}'.format(layer)]
-        dw = np.matmul(dz[L - layer], A.T) / m
-        db = np.sum(dz[L - layer], axis=1, keepdims=True) / m
-        if layer > 1:
-            rglz = (1 - (A ** 2)) * (cache['D' + str(layer - 1)] / keep_prob)
-            dzdx = dz.append(np.matmul(W.T, dz[L - layer]) * rglz)
-        weights['W{}'.format(layer)] -= alpha * dw
-        weights['b{}'.format(layer)] -= alpha * db
+    drop = tf.layers.Dropout(keep_prob)
+    init = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
+    prgl = tf.layers.Dense(n, activation, kernel_initializer=init,
+                           kernel_regularizer=drop)
+    return prgl(prev)
