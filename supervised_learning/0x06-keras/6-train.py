@@ -30,6 +30,7 @@ def train_model(network, data, labels, batch_size, epochs,
 
     Returns: the History object generated after training the model
     """
+    stop_call = None
     if validation_data:
         stop_call = [K.callbacks.EarlyStopping(patience=patience)]
     return network.fit(x=data, y=labels, batch_size=batch_size,
