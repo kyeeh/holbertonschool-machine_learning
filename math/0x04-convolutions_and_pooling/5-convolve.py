@@ -59,6 +59,6 @@ def convolve(images, kernels, padding='same', stride=(1, 1)):
             for k in range(nc):
                 cvv_img[:, i, j, k] = (padded[:, (i * sh): (i * sh) + kh,
                                               (j * sw): (j * sw) + kw] *
-                                       kernels[:, :, :, k]).
-                sum(axis=(1, 2, 3))
+                                       kernels[:, :, :, k]).sum(
+                                                            axis=(1, 2, 3))
     return cvv_img
