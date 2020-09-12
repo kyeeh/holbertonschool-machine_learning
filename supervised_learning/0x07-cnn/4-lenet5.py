@@ -26,7 +26,7 @@ def lenet5(x, y):
         Fully connected softmax output layer with 10 nodes
 
     All layers requiring initialization should initialize their kernels with
-    the he_normal initialization method: 
+    the he_normal initialization method:
         tf.contrib.layers.variance_scaling_initializer()
 
     All hidden layers requiring activation should use the relu activation
@@ -69,9 +69,9 @@ def lenet5(x, y):
     loss = tf.losses.softmax_cross_entropy(y, output)
     smax = tf.nn.softmax(output)
     adam = tf.train.AdamOptimizer().minimize(loss)
-    perd = tf.argmax(y, 1)
+    pred = tf.argmax(y, 1)
     tagg = tf.argmax(output, 1)
-    eqty = tf.equal(perd, tagg)
+    eqty = tf.equal(pred, tagg)
     accr = tf.reduce_mean(tf.cast(y, tf.float32))
 
     return smax, adam, loss, accr
