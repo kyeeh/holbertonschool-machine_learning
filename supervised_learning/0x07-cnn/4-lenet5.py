@@ -66,12 +66,12 @@ def lenet5(x, y):
 
     output = tf.layers.Dense(units=10, kernel_initializer=init)(full2)
 
-    loss = tf.losses.softmax_cross_entropy(y, output)
     smax = tf.nn.softmax(output)
+    loss = tf.losses.softmax_cross_entropy(y, output)
     adam = tf.train.AdamOptimizer().minimize(loss)
     pred = tf.argmax(y, 1)
     tagg = tf.argmax(output, 1)
     eqty = tf.equal(pred, tagg)
-    accr = tf.reduce_mean(tf.cast(y, tf.float32))
+    accr = tf.reduce_mean(tf.cast(eqty, tf.float32))
 
     return smax, adam, loss, accr
