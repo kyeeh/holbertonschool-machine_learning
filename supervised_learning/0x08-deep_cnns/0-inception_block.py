@@ -48,7 +48,7 @@ def inception_block(A_prev, filters):
                              kernel_size=3,
                              padding='same',
                              activation='relu',
-                             kernel_initializer=init)(cvv_F3R)                              
+                             kernel_initializer=init)(cvv_F3R)
 
     cvv_F5R = K.layers.Conv2D(filters=F5R,
                               kernel_size=1,
