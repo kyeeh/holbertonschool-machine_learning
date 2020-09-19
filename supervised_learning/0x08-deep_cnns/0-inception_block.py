@@ -44,17 +44,17 @@ def inception_block(A_prev, filters):
                               activation='relu',
                               kernel_initializer=init)(A_prev)
 
+    cvv_F3 = K.layers.Conv2D(filters=F3,
+                             kernel_size=3,
+                             padding='same',
+                             activation='relu',
+                             kernel_initializer=init)(cvv_F3R)                              
+
     cvv_F5R = K.layers.Conv2D(filters=F5R,
                               kernel_size=1,
                               padding='same',
                               activation='relu',
                               kernel_initializer=init)(A_prev)
-
-    cvv_F3 = K.layers.Conv2D(filters=F3,
-                             kernel_size=3,
-                             padding='same',
-                             activation='relu',
-                             kernel_initializer=init)(cvv_F3R)
 
     cvv_F5 = K.layers.Conv2D(filters=F5,
                              kernel_size=5,
