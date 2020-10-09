@@ -326,8 +326,37 @@ class Yolo:
 
     def predict(self, folder_path):
         """
-        Predict function
+        folder_path: a string representing the path to the folder holding all
+        the images to predict
+        All image windows should be named after the corresponding image
+        filename without its full path(see examples below)
+        Displays all images using the show_boxes method
+
+        Returns: a tuple of (predictions, image_paths):
+            predictions: a list of tuples for each image of (boxes,
+            box_classes, box_scores)
+            image_paths: a list of image paths corresponding to each
+            prediction in predictions
         """
-        prd = []
+        prds = []
         images, image_paths = self.load_images(folder_path)
-        return (prd, image_paths)
+        prcd_imgs, image_shapes = self.preprocess_images(images)
+        outputs = self.model.predict(prcd_imgs)
+
+        for i, img in enumerate(images):
+            outs = [outputs[0][i, :, :, :, :],
+                    outputs[1][i, :, :, :, :],
+                    outputs[2][i, :, :, :, :]]
+            img_original_dimensions = np.array([img.shape[0],
+                                                img.shape[1]])
+            bxs, box_confidence, box_prob = self.process_outputs(
+                outs, img_original_dimensions)
+            boxes, box_classes, box_scores = self.filter_boxes(
+                bxs, box_confidence, box_prob)
+            boxes, box_classes, box_scores = self.non_max_suppression(
+                boxes, box_classes, box_scores)
+
+            file_name = image_paths[i].split('/')[-1]
+            self.show_boxes(img, boxes, box_classes, box_scores, file_name)
+            pred.append((boxes, box_classes, box_scores))
+        return (prds, image_paths)
