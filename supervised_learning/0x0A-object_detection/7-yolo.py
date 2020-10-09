@@ -4,6 +4,7 @@ Object Detection Module
 """
 import cv2
 import glob
+import os
 import numpy as np
 import tensorflow.keras as K
 
@@ -358,5 +359,5 @@ class Yolo:
 
             file_name = image_paths[i].split('/')[-1]
             self.show_boxes(img, boxes, box_classes, box_scores, file_name)
-            pred.append((boxes, box_classes, box_scores))
+            prds.append((boxes, box_classes, box_scores))
         return (prds, image_paths)
