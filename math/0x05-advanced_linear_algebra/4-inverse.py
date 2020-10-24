@@ -61,14 +61,14 @@ def minor(matrix):
     if len(matrix) == 1:
         return [[1]]
 
-    minors_matrix = []
+    minors_list = []
     for i in range(len(matrix)):
         minors = []
         for j in range(len(matrix)):
             minor = [row[:j] + row[j+1:]for row in (matrix[:i]+matrix[i+1:])]
             minors.append(determinant(minor))
-        minors_matrix.append(minors)
-    return minors_matrix
+        minors_list.append(minors)
+    return minors_list
 
 
 def cofactor(matrix):
