@@ -55,13 +55,11 @@ def minor(matrix):
         raise TypeError('matrix must be a list of lists')
     if len(matrix) == 1 and len(matrix[0]) == 0:
         raise ValueError("matrix must be a non-empty square matrix")
-    if matrix == [[]]:
-        raise ValueError('matrix must be a non-empty square matrix')
     if not all([len(n) == len(matrix) for n in matrix]):
         raise ValueError("matrix must be a non-empty square matrix")
+
     if len(matrix) == 1 and len(matrix[0]) == 1:
         return [[1]]
-
     minors_list = []
     for i in range(len(matrix)):
         minors = []
