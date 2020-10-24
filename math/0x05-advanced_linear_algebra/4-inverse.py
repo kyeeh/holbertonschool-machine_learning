@@ -124,4 +124,7 @@ def inverse(matrix):
         return None
 
     adjt = adjugate(matrix)
-    return [[n / dtrm for n in row] for row in adjt]
+    for i in range(len(adjt)):
+        for j in range(len(adjt)):
+            adjt[i][j] = adjt[i][j]/det
+    return adjt
