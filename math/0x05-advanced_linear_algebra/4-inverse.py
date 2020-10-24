@@ -50,13 +50,14 @@ def minor(matrix):
 
     Returns: the minor matrix of matrix
     """
-    if (type(matrix) is not list or len(matrix) == 0 or
+    if (type(matrix) != list or len(matrix) == 0 or
        not all([type(m) == list for m in matrix])):
         raise TypeError('matrix must be a list of lists')
-    if any([len(matrix) != len(row) for row in matrix]):
-        raise ValueError('matrix must be a non-empty square matrix')
     if matrix == [[]]:
-        raise ValueError('matrix must be a non-empty square matrix')    
+        raise ValueError('matrix must be a non-empty square matrix')
+    col_size = [len(row) for row in matrix]
+    if not all(len(matrix) == col for col in col_size):
+        raise ValueError('matrix must be a non-empty square matrix')
     if len(matrix) == 1:
         return [[1]]
 
