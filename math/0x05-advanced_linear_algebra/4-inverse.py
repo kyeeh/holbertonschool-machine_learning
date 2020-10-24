@@ -126,5 +126,5 @@ def inverse(matrix):
     adjt = adjugate(matrix)
     for i in range(len(adjt)):
         for j in range(len(adjt)):
-            adjt[i][j] = adjt[i][j]/det
+            adjt[i][j] = adjt[i][j]/dtrm
     return adjt
