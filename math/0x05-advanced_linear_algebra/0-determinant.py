@@ -20,6 +20,8 @@ def determinant(matrix):
     if (type(matrix) is not list or len(matrix) == 0 or
        not all([type(m) == list for m in matrix])):
         raise TypeError('matrix must be a list of lists')
+    if len(matrix) == 1 and len(matrix[0]) == 0:
+        return 1
     if len(matrix[0]) != len(matrix):
         raise ValueError("matrix must be a square matrix")
     if matrix == [[]]:
