@@ -50,13 +50,10 @@ def minor(matrix):
 
     Returns: the minor matrix of matrix
     """
-    if (type(matrix) != list or len(matrix) == 0 or
+    if (type(matrix) is not list or len(matrix) == 0 or
        not all([type(m) == list for m in matrix])):
         raise TypeError('matrix must be a list of lists')
-    col_size = [len(row) for row in matrix]
-    if matrix == [[]]:
-        raise ValueError('matrix must be a non-empty square matrix')
-    if not all(len(matrix) == col for col in col_size):
+    if any([len(matrix) != len(row) for row in matrix]):
         raise ValueError('matrix must be a non-empty square matrix')
     if len(matrix) == 1:
         return [[1]]
@@ -124,7 +121,4 @@ def inverse(matrix):
         return None
 
     adjt = adjugate(matrix)
-    for i in range(len(adjt)):
-        for j in range(len(adjt)):
-            adjt[i][j] = adjt[i][j]/dtrm
-    return adjt
+    return [[n / dtrm for n in row] for row in adjt]
