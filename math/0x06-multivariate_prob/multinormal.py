@@ -29,7 +29,7 @@ class MultiNormal():
         if n < 2:
             raise ValueError("data must contain multiple data points")
         self.mean = np.mean(data, axis=1).reshape(d, 1)
-        cov = data - self.mean
+        self.cov = data - self.mean
         self.cov = np.dot(cov, cov.T) / (n - 1)
 
     def pdf(self, x):
