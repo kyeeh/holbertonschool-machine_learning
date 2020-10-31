@@ -17,7 +17,8 @@ def likelihood(x, n, P):
     If n is not a positive integer, raise a ValueError with the message n must
     be a positive integer
     If x is not an integer that is greater than or equal to 0, raise a
-    ValueError with the message x must be an integer that is greater than or equal to 0
+    ValueError with the message x must be an integer that is greater than or
+    equal to 0
     If x is greater than n, raise a ValueError with the message x cannot be
     greater than n
     If P is not a 1D numpy.ndarray, raise a TypeError with the message P must
