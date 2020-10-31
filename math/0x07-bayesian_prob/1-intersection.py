@@ -38,8 +38,8 @@ def intersection(x, n, P, Pr):
     if not isinstance(n, int) or n < 1:
         raise ValueError("n must be a positive integer")
     if not isinstance(x, (int, float)) or (x < 0):
-        raise ValueError(
-            "x must be an integer that is greater than or equal to 0")
+        mg = "x must be an integer that is greater than or equal to 0"
+        raise ValueError(mg)
     if x > n:
         raise ValueError("x cannot be greater than n")
     if not isinstance(P, np.ndarray) or len(P.shape) != 1:
