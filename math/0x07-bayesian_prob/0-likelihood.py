@@ -39,7 +39,7 @@ def likelihood(x, n, P):
     if x > n:
         raise ValueError("x cannot be greater than n")
     if np.any(P > 1) or np.any(P < 0):
-        raise ValueError("All values in P must be in the range [0, 1]")
+        raise ValueError("All values in {P} must be in the range [0, 1]")
     num = (np.math.factorial(n))
     den = (np.math.factorial(x) * np.math.factorial(n - x))
     fct = num / den
