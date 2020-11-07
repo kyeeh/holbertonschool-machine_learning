@@ -30,8 +30,6 @@ def initialize(X, k):
         return None
     if type(k) != int or k <= 0 or k >= X.shape[0]:
         return None
-    if type(iterations) != int or iterations <= 0:
-        return None
 
     max = np.max(X, axis=0)
     min = np.min(X, axis=0)
