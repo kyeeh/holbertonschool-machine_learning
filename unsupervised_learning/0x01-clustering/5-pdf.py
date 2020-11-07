@@ -33,6 +33,8 @@ def pdf(X, m, S):
         return None
     if S.shape[0] != S.shape[1] or X.shape[1] != S.shape[1]:
         return None
+    if S.shape[0] != S.shape[1]:
+        return None
 
     n, d = X.shape
     Xmm = X - m
