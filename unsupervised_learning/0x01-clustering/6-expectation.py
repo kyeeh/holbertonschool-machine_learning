@@ -33,6 +33,8 @@ def expectation(X, pi, m, S):
         return None, None
     if not np.isclose([np.sum(pi)], [1])[0]:
         return None, None
+    if X.shape[1] != S.shape[2]:
+        return None, None
 
     try:
         n, d = X.shape
