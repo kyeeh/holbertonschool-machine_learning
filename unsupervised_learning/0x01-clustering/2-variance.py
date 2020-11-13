@@ -17,19 +17,15 @@ def variance(X, C):
     Returns: var, or None on failure
         var is the total variance
     """
-    try:
-        if not isinstance(X, np.ndarray) or len(X.shape) != 2:
-            return None
-        if not isinstance(C, np.ndarray) or len(X.shape) != 2:
-            return None
-        if X.shape[1] != C.shape[1]:
-            return None
-        if C.shape[0] > X.shape[0]:
-            return None
-        dtcs = np.sqrt(((X - C[:, np.newaxis])**2).sum(axis=-1))
-        mind = np.min(dtcs, axis=0)
-        vard = np.sum(mind ** 2)
-        return vard
-
-    except Exception:
+    if not isinstance(X, np.ndarray) or len(X.shape) != 2:
         return None
+    if not isinstance(C, np.ndarray) or len(C.shape) != 2:
+        return None
+    if X.shape[1] != C.shape[1]:
+        return None
+    if C.shape[0] > X.shape[0]:
+        return None
+
+    dtcs = np.sqrt(((X - C[:, np.newaxis])**2).sum(axis=-1))
+    mind = np.min(dtcs, axis=0)
+    return np.sum(mind ** 2)
