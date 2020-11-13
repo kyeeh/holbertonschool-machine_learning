@@ -22,7 +22,10 @@ def variance(X, C):
             return None
         if not isinstance(C, np.ndarray) or len(C.shape) != 2:
             return None
-
+        if X.shape[1] != C.shape[1]:
+            return None
+        if C.shape[0] > X.shape[0]:
+            return None
         dtcs = np.sqrt(((X - C[:, np.newaxis])**2).sum(axis=-1))
         mind = np.min(dtcs, axis=0)
         vard = np.sum(mind ** 2)

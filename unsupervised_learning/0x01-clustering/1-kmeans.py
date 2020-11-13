@@ -38,8 +38,8 @@ def kmeans(X, k, iterations=1000):
         return None, None
 
     n, d = X.shape
-    xmax = np.max(X, axis=0)
-    xmin = np.min(X, axis=0)
+    xmax = np.max(X, axis=0).astype(np.float)
+    xmin = np.min(X, axis=0).astype(np.float)
     C = np.random.uniform(xmin, xmax, size=(k, d))
 
     for i in range(iterations):
