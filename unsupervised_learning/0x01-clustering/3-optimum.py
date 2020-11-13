@@ -43,12 +43,14 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
     if kmin >= kmax:
         return (None, None)
 
-    results, d_vars = [], []
+    d_vars = []
+    results = []
     for i in range(kmin, kmax + 1):
         C, klss = kmeans(X, i, iterations)
         results.append((C, klss))
         if i == kmin:
             kmin_var = variance(X, C)
         cvar = variance(X, C)
-        d_vars.append(kmin_var - cvar)
+        if cvar is not None:
+            d_vars.append(kmin_var - cvar)
     return (results, d_vars)
