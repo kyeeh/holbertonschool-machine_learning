@@ -11,7 +11,7 @@ class GaussianProcess:
     """
     def __init__(self, X_init, Y_init, l=1, sigma_f=1):
         """
-        Class constructor: def __init__(self, X_init, Y_init, l=1, sigma_f=1):
+        Class constructor
 
         X_init is a numpy.ndarray of shape (t, 1) representing the inputs
         already sampled with the black-box function
