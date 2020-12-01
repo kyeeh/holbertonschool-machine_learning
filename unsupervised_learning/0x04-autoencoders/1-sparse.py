@@ -30,7 +30,7 @@ def autoencoder(input_dims, hidden_layers, latent_dims):
     encoder = keras.layers.Dense(
         hidden_layers[0], activation='relu')(input_encoder)
     for layer in hidden_layers[1:]:
-        encoder = keras.layers.Dense( layer, activation='relu')(encoder)
+        encoder = keras.layers.Dense(layer, activation='relu')(encoder)
     l1_reg = keras.regularizers.l1(lambtha)
     encoder = keras.layers.Dense(
         latent_dims,
